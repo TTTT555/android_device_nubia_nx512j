@@ -50,10 +50,12 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
+    af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
     audio.offload.min.duration.secs=30 \
     audio.offload.video=true \
     vendor.audio.av.streaming.offload.enable=true \
     vendor.audio.offload.buffer.size.kb=64 \
+    vendor.audio_hal.period_size=192 \
     vendor.audio.offload.gapless.enabled=true \
     vendor.voice.path.for.pcm.voip=true
