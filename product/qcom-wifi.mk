@@ -16,6 +16,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     hostapd \
+    wificond \
     wpa_supplicant \
     libwpa_client \
     wpa_supplicant.conf
