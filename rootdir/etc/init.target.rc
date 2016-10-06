@@ -1,4 +1,4 @@
-# Copyright (c) 2009-2012, 2014, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2012, 2016, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -42,6 +42,202 @@ on boot
     # DTW feature
     chown system system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/wakeup_gesture
     chmod 0666 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/wakeup_gesture
+
+    #proximity sensor
+    chown system system /sys/class/proximity/proximity/chip_name
+    chown system system /sys/class/proximity/proximity/prox_check
+    chown system system /sys/class/proximity/proximity/enable
+    chown system system /sys/class/proximity/proximity/prox_init
+    chown system system /sys/class/proximity/proximity/prox_led_pluse_cnt
+    chown system system /sys/class/proximity/proximity/prox_adc_time
+    chown system system /sys/class/proximity/proximity/prox_led_strength_level
+    chown system system /sys/class/proximity/proximity/prox_debug_delay
+    chown system system /sys/class/proximity/proximity/prox_calibrate
+    chown system system /sys/class/proximity/proximity/prox_threshold_high
+    chown system system /sys/class/proximity/proximity/prox_threshold_low
+    chown system system /sys/class/proximity/proximity/prox_offset
+    chown system system /sys/class/proximity/proximity/prox_calibrate_result
+    chown system system /sys/class/proximity/proximity/prox_thres_param_high
+    chown system system /sys/class/proximity/proximity/prox_thres_param_low
+    chown system system /sys/class/proximity/proximity/prox_thres
+    chown system system /sys/class/proximity/proximity/prox_debug
+    chown system system /sys/class/proximity/proximity/prox_calibrate_start
+    chown system system /sys/class/proximity/proximity/prox_thres_max
+    chown system system /sys/class/proximity/proximity/prox_thres_min
+    chown system system /sys/class/proximity/proximity/prox_data_max
+    chown system system /sys/class/proximity/proximity/prox_manual_calibrate_threshold
+    chown system system /sys/class/proximity/proximity/prox_wakelock
+    chown system system /sys/class/proximity/proximity/irq_status
+    chown system system /sys/class/proximity/proximity/wait_time
+    chown system system /sys/class/proximity/proximity/prox_offset_cal_start
+    chown system system /sys/class/proximity/proximity/prox_offset_cal
+    chown system system /sys/class/proximity/proximity/prox_offset_cal_result
+    chown system system /sys/class/proximity/proximity/prox_data_safe_range_max
+    chown system system /sys/class/proximity/proximity/prox_data_safe_range_min
+    chown system system /sys/class/proximity/proximity/prox_offset_cal_verify
+    chown system system /sys/class/proximity/proximity/prox_calibrate_verify
+
+    chmod 0444 /sys/class/proximity/proximity/chip_name
+    chmod 0444 /sys/class/proximity/proximity/prox_check
+    chmod 0644 /sys/class/proximity/proximity/enable
+    chmod 0200 /sys/class/proximity/proximity/prox_init
+    chmod 0644 /sys/class/proximity/proximity/prox_led_pluse_cnt
+    chmod 0644 /sys/class/proximity/proximity/prox_adc_time
+    chmod 0644 /sys/class/proximity/proximity/prox_led_strength_level
+    chmod 0644 /sys/class/proximity/proximity/prox_debug_delay
+    chmod 0200 /sys/class/proximity/proximity/prox_calibrate
+    chmod 0644 /sys/class/proximity/proximity/prox_threshold_high
+    chmod 0644 /sys/class/proximity/proximity/prox_threshold_low
+    chmod 0644 /sys/class/proximity/proximity/prox_offset
+    chmod 0444 /sys/class/proximity/proximity/prox_calibrate_result
+    chmod 0644 /sys/class/proximity/proximity/prox_thres_param_high
+    chmod 0644 /sys/class/proximity/proximity/prox_thres_param_low
+    chmod 0644 /sys/class/proximity/proximity/prox_thres
+    chmod 0644 /sys/class/proximity/proximity/prox_debug
+    chmod 0644 /sys/class/proximity/proximity/prox_calibrate_start
+    chmod 0444 /sys/class/proximity/proximity/prox_thres_max
+    chmod 0444 /sys/class/proximity/proximity/prox_thres_min
+    chmod 0444 /sys/class/proximity/proximity/prox_data_max
+    chmod 0444 /sys/class/proximity/proximity/prox_manual_calibrate_threshold
+    chmod 0644 /sys/class/proximity/proximity/prox_wakelock
+    chmod 0644 /sys/class/proximity/proximity/irq_status
+    chmod 0644 /sys/class/proximity/proximity/wait_time
+    chmod 0644 /sys/class/proximity/proximity/prox_offset_cal_start
+    chmod 0644 /sys/class/proximity/proximity/prox_offset_cal
+    chmod 0444 /sys/class/proximity/proximity/prox_offset_cal_result
+    chmod 0444 /sys/class/proximity/proximity/prox_data_safe_range_max
+    chmod 0444 /sys/class/proximity/proximity/prox_data_safe_range_min
+    chmod 0644 /sys/class/proximity/proximity/prox_offset_cal_verify
+    chmod 0644 /sys/class/proximity/proximity/prox_calibrate_verify
+    #boot sound
+    chmod 0664 /system/media/audio/ui/bootup.wav
+    chmod 0755 /system/bin/bootsound.sh
+
+    #light sensor
+    chown system system /sys/class/light/light/light_check
+    chown system system /sys/class/light/light/enable
+    chown system system /sys/class/light/light/delay
+    chmod 0444 /sys/class/light/light/light_check
+    chmod 0644 /sys/class/light/light/enable
+    chmod 0644 /sys/class/light/light/delay
+
+    #compass
+    chown system system /sys/class/compass/compass/accel
+    chmod 0640 /sys/class/compass/compass/accel
+
+    chown system system /sys/class/compass/compass/mag_check
+    chown system system /sys/class/compass/compass/enable_acc
+    chown system system /sys/class/compass/compass/enable_mag
+    chown system system /sys/class/compass/compass/enable_fusion
+    chown system system /sys/class/compass/compass/enable_ori
+    chown system system /sys/class/compass/compass/enable_unmag
+    chown system system /sys/class/compass/compass/enable_geomag
+    chown system system /sys/class/compass/compass/delay_acc
+    chown system system /sys/class/compass/compass/delay_mag
+    chown system system /sys/class/compass/compass/delay_ori
+
+    chmod 0444 /sys/class/compass/compass/mag_check
+    chmod 0644 /sys/class/compass/compass/enable_acc
+    chmod 0644 /sys/class/compass/compass/enable_mag
+    chmod 0644 /sys/class/compass/compass/enable_fusion
+    chmod 0644 /sys/class/compass/compass/enable_ori
+    chmod 0644 /sys/class/compass/compass/enable_unmag
+    chmod 0644 /sys/class/compass/compass/enable_geomag
+    chmod 0644 /sys/class/compass/compass/delay_acc
+    chmod 0644 /sys/class/compass/compass/delay_mag
+    chmod 0644 /sys/class/compass/compass/delay_ori
+
+    #acc
+    chown system system /sys/class/acc/acc/acc_check
+    chown system system /sys/class/acc/acc/enable
+    chown system system /sys/class/acc/acc/delay
+
+    chmod 0444 /sys/class/acc/acc/acc_check
+    chmod 0644 /sys/class/acc/acc/enable
+    chmod 0644 /sys/class/acc/acc/delay
+
+    chown system system /sys/class/acc/acc/range
+    chown system system /sys/class/acc/acc/enable_device
+    chown system system /sys/class/acc/acc/pollrate_ms
+
+    chmod 0644 /sys/class/acc/acc/range
+    chmod 0644 /sys/class/acc/acc/enable_device
+    chmod 0644 /sys/class/acc/acc/pollrate_ms
+
+    #gyro
+    chown system system /sys/class/gyro/gyro/gyro_check
+    chown system system /sys/class/gyro/gyro/range
+    chown system system /sys/class/gyro/gyro/enable_device
+    chown system system /sys/class/gyro/gyro/pollrate_ms
+
+    chmod 0444 /sys/class/gyro/gyro/gyro_check
+    chmod 0644 /sys/class/gyro/gyro/range
+    chmod 0644 /sys/class/gyro/gyro/enable_device
+    chmod 0644 /sys/class/gyro/gyro/pollrate_ms
+
+    mkdir /persist/proxdata 0755 system system
+    chown system system /persist/proxdata
+    chmod 0755 /persist/proxdata
+
+    #hall_device
+    chown system system /sys/class/hall_device/hall_device/hall_check
+    chown system system /sys/class/hall_device/hall_device/enable
+
+    chmod 0444 /sys/class/hall_device/hall_device/hall_check
+    chmod 0644 /sys/class/hall_device/hall_device/enable
+
+    #test_result
+    chown system system /persist/test_result
+    chmod 0644 /persist/test_result
+
+    #audio_test_related
+    mkdir /persist/mics 0755 system system
+    chown system system /persist/mics
+    chmod 0755 /persist/mics
+    mkdir /persist/audio 0755 system system
+    chown system system /persist/audio
+    chmod 0755 /persist/audio
+
+    # create directory for nfc- give nfc the read/write access to
+    # the following directory-added by ZTEMT 2015.1.8
+    mkdir /data/nfc 0660 nfc nfc
+
+    #lcd-backlight 
+    chown system system /sys/class/leds/lcd-backlight/max_brightness
+    chmod 0666 /sys/class/leds/lcd-backlight/max_brightness
+
+    # Enable writing to led blink node from userspace
+    chown system system /sys/class/leds/red/brightness
+    chmod 0666 /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/red/outn
+    chmod 0666 /sys/class/leds/red/outn
+    chown system system /sys/class/leds/red/fade_parameter
+    chmod 0666 /sys/class/leds/red/fade_parameter
+
+    #button-backlight
+    chown system system /sys/class/leds/button-backlight/brightness
+    chmod 0666 /sys/class/leds/button-backlight/brightness
+ 
+    chown system system /sys/class/leds/button-backlight/max_brightness
+    chmod 0666 /sys/class/leds/button-backlight/max_brightness
+
+    # Change new breathlight led driver's node's permission
+    chown system system /sys/class/leds/nubia_led/brightness
+    chown system system /sys/class/leds/nubia_led/fade_parameter
+    chown system system /sys/class/leds/nubia_led/grade_parameter
+    chown system system /sys/class/leds/nubia_led/outn
+
+    # Torch
+    chown system camera /sys/class/leds/led:torch-light/brightness
+    chmod 0660 /sys/class/leds/led:torch-light/brightness
+
+#start the compass servie
+    service akmd  /system/bin/akmd09911
+    class core
+    user root
+    group root system misc input
+    seclabel u:r:system_app:s0
+    oneshot  
 
 service tp_node /system/bin/sh /tp_node.sh
     class main
