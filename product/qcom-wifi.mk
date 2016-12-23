@@ -12,11 +12,13 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     libwcnss_qmi \
-    wcnss_service
+    wcnss_service \
+    dhcpcd.conf 
 
 PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
+    libwpa_client \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
@@ -27,4 +29,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd.conf:system/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/configs/hostapd.deny:system/etc/hostapd/hostapd.deny \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+
