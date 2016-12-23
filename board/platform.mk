@@ -27,9 +27,7 @@ TARGET_CPU_VARIANT := cortex-a53
 endif
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_nx512j
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-TARGET_RECOVERY_DEVICE_MODULES := libinit_nx512j
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
