@@ -1,0 +1,2 @@
+#SDClang
+TARGET_USES_SDCLANG := true
