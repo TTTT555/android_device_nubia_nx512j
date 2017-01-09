@@ -213,13 +213,17 @@ on boot
     chmod 0666 /sys/class/leds/red/outn
     chown system system /sys/class/leds/red/fade_parameter
     chmod 0666 /sys/class/leds/red/fade_parameter
+    chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/jogball-backlight/brightness
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
+    chown system system /sys/class/leds/red/grade_parameter
 
     #button-backlight
     chown system system /sys/class/leds/button-backlight/brightness
     chmod 0666 /sys/class/leds/button-backlight/brightness
- 
-    chown system system /sys/class/leds/button-backlight/max_brightness
-    chmod 0666 /sys/class/leds/button-backlight/max_brightness
 
     # Change new breathlight led driver's node's permission
     chown system system /sys/class/leds/nubia_led/brightness
