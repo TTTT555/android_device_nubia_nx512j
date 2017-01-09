@@ -14,4 +14,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.ptor.enable=true \
     debug.enable.sglscale=1 \
     ro.opengles.version=196609
-
