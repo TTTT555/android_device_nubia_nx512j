@@ -109,6 +109,7 @@ on boot
     chmod 0444 /sys/class/proximity/proximity/prox_data_safe_range_min
     chmod 0644 /sys/class/proximity/proximity/prox_offset_cal_verify
     chmod 0644 /sys/class/proximity/proximity/prox_calibrate_verify
+
     #boot sound
     chmod 0664 /system/media/audio/ui/bootup.wav
     chmod 0755 /system/bin/bootsound.sh
@@ -248,4 +249,8 @@ service tp_node /system/bin/sh /tp_node.sh
     user root
     group root
     oneshot
+
+# Fix torch on notification drawer
+on property:sys.boot_completed=1
+    restart media
 
