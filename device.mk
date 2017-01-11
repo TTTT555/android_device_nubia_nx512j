@@ -17,7 +17,7 @@
 # Include package config fragments
 include $(LOCAL_PATH)/product/*.mk
 
-$(call inherit-product-if-exists, vendor/nubia/nx512j/nx512j-vendor.mk)
+$(call inherit-product, vendor/nubia/nx512j/nx512j-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
