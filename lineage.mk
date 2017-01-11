@@ -1,4 +1,5 @@
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +18,7 @@ $(call inherit-product, device/nubia/nx512j/full_nx512j.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_NAME := cm_nx512j
+PRODUCT_NAME := lineage_nx512j
 BOARD_VENDOR := nubia
 PRODUCT_DEVICE := nx512j
 
