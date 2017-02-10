@@ -35,14 +35,6 @@ on boot
     chown system system /sys/class/leds/red/blink
     chown system system /sys/class/leds/red/led_time
 
-    # Touchscreen
-    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
-    chmod 0660 /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
-
-    # DTW feature
-    chown system system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/wakeup_gesture
-    chmod 0666 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/wakeup_gesture
-
     #proximity sensor
     chown system system /sys/class/proximity/proximity/chip_name
     chown system system /sys/class/proximity/proximity/prox_check
