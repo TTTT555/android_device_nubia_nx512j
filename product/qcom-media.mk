@@ -34,5 +34,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_BOOT_JARS += \
     qcmediaplayer
 
-
+# Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
 
