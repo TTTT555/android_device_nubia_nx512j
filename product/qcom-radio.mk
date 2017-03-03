@@ -35,5 +35,4 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
     libxml2 \
-    sockev \
-    datatop
+    sockev
