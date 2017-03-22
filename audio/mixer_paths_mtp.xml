@@ -502,8 +502,6 @@
         <ctl name="RX2 MIX1 INP1" value="RX2" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHR" value="Switch" />
-		<ctl name="RX1 Digital Volume" value="79" />
-		<ctl name="RX2 Digital Volume" value="79" />
     </path>
 
     <path name="speaker-mic">
@@ -533,17 +531,15 @@
     </path>
 
     <path name="headphones">
-        <ctl name="HPHR CTRL" value="on" />
+	    <ctl name="HPHR CTRL" value="on" />
         <ctl name="MI2S_RX Channels" value="Two" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
-		<ctl name="RX1 Digital Volume" value="78" />
-		<ctl name="RX2 Digital Volume" value="78" />
     </path>
-	
+
     <path name="headset-mic">
         <path name="adc2" />
         <ctl name="ADC2 MUX" value="INP2" />
@@ -587,8 +583,6 @@
 
     <path name="voice-headphones">
         <path name="headphones" />
-		<ctl name="RX1 Digital Volume" value="79" />
-		<ctl name="RX2 Digital Volume" value="79" />
     </path>
 
     <path name="voice-headset-mic">
@@ -599,8 +593,6 @@
     <path name="speaker-and-headphones">
         <ctl name="External PA" value="on" />
         <path name="headphones" />
-		<ctl name="RX1 Digital Volume" value="77" />
-		<ctl name="RX2 Digital Volume" value="77" />
     </path>
 
     <path name="usb-headphones">
@@ -649,6 +641,8 @@
         <ctl name="DEC2 MUX" value="ADC3" />
         <ctl name="MI2S_TX Channels" value="Two" />
         <ctl name="ADC2 MUX" value="INP3" />
+        <ctl name="ADC1 Volume" value="4" />
+        <ctl name="ADC3 Volume" value="4" />
     </path>
 
     <path name="dmic-endfire">
@@ -741,3 +735,4 @@
     </path>
 
 </mixer>
+
