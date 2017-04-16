@@ -6,10 +6,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     memtrack.msm8916
 
-# Doze
-PRODUCT_PACKAGES += \
-	LineageDoze
-
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=c2d \
