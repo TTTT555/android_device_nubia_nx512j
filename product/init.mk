@@ -1,11 +1,12 @@
 # Init scripts
 PRODUCT_PACKAGES += \
+    init.qcom.usb.rc \
     init.qcom.rc \
     init.qcom.power.rc \
     init.recovery.qcom.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    fstab.qcom \
+    init.target.rc \
+    tp_node.sh
 
-ifeq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_PACKAGES += \
-    init.qcom.ssr.rc
-endif
+

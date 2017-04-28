@@ -1,0 +1,6 @@
+# android_device_nubia_nx512j
+
+Device tree for ZTE Z9 Max (Nubia NX512J)
+Based on CyanogenMod msm8916-common & moto msm8916-common device trees.
+
+--by Bauuuuu

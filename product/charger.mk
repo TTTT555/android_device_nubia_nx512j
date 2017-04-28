@@ -1,0 +1,32 @@
+# rootdir/res
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/res/images/background.png:root/res/images/background.png \
+    $(LOCAL_PATH)/rootdir/res/images/chargeLogo.png:root/res/images/chargeLogo.png \
+    $(LOCAL_PATH)/rootdir/res/images/error.png:root/res/images/error.png \
+    $(LOCAL_PATH)/rootdir/res/images/full.png:root/res/images/full.png \
+    $(LOCAL_PATH)/rootdir/res/images/green_0.png:root/res/images/green_0.png \
+    $(LOCAL_PATH)/rootdir/res/images/green_1.png:root/res/images/green_1.png \
+    $(LOCAL_PATH)/rootdir/res/images/percentage.png:root/res/images/percentage.png \
+    $(LOCAL_PATH)/rootdir/res/images/percentage_full.png:root/res/images/percentage_full.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER0.png:root/res/images/POWER0.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER1.png:root/res/images/POWER1.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER2.png:root/res/images/POWER2.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER3.png:root/res/images/POWER3.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER4.png:root/res/images/POWER4.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER5.png:root/res/images/POWER5.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER6.png:root/res/images/POWER6.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER7.png:root/res/images/POWER7.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER8.png:root/res/images/POWER8.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER9.png:root/res/images/POWER9.png \
+    $(LOCAL_PATH)/rootdir/res/images/POWER10.png:root/res/images/POWER10.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_0.png:root/res/images/red_0.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_1.png:root/res/images/red_1.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_2.png:root/res/images/red_2.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_3.png:root/res/images/red_3.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_4.png:root/res/images/red_4.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_5.png:root/res/images/red_5.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_6.png:root/res/images/red_6.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_7.png:root/res/images/red_7.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_8.png:root/res/images/red_8.png \
+    $(LOCAL_PATH)/rootdir/res/images/red_9.png:root/res/images/red_9.png \
+    $(LOCAL_PATH)/rootdir/sbin/poweroffcharge:root/sbin/poweroffcharge
