@@ -175,9 +175,11 @@ on boot
     #hall_device
     chown system system /sys/class/hall_device/hall_device/hall_check
     chown system system /sys/class/hall_device/hall_device/enable
-
     chmod 0444 /sys/class/hall_device/hall_device/hall_check
     chmod 0644 /sys/class/hall_device/hall_device/enable
+
+    #WIP enable hall here
+    write /sys/class/hall_device/hall_device/enable 1
 
     #test_result
     chown system system /persist/test_result
