@@ -4,7 +4,6 @@ PRODUCT_PACKAGES += \
     libboringssl-compat \
     libzte_camera
 
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.model=NX512J \
     dalvik.vm.heapstartsize=8m \
@@ -13,3 +12,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
+
+# FlipFlap- smartcover app
+PRODUCT_PACKAGES += \
+    FlipFlap
