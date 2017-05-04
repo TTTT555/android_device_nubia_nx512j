@@ -326,18 +326,27 @@ set_light_buttons(struct light_device_t *dev,
     if(brightness == 0 && is_charging == 1){    // buttons on & charging
         write_int(LED_OUTN, 0);
         write_int(LED_MODE, 0);
-
         write_int(LED_OUTN, HOME_MASK);
         write_str(LED_FADE, "4 2 2");
         write_str(LED_GRADE, "0 200");
         write_int(LED_MODE, AW_FADE_AUTO);
         btn_state = 0;
     } else if(brightness != 0 && !btn_state) {                // turn buttons on
-        write_int(LED_OUTN, ALL_MASK);
+        write_int(LED_OUTN, LR_MASK);
         write_str(LED_FADE, "1");
         write_int(LED_GRADE, brightness);
         write_int(LED_MODE, AW_CONST_ON);
         btn_state = 1;
+
+		if (btn_state)
+		{
+	        write_int(LED_OUTN, HOME_MASK);
+	        write_str(LED_FADE, "1 0 0");
+	        write_str(LED_GRADE, "72 brightness");
+	        write_int(LED_MODE, AW_FADE_CYCLE);
+		btn_state = 1;
+		}
+
     } else if(brightness == 0 && btn_state){
         write_int(LED_OUTN, ALL_MASK);
         write_str(LED_FADE, "1");
@@ -463,6 +472,6 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
     .name = "NX512J Lights Module v1.1",
-    .author = "faust93 at monumentum@gmail.com",
+    .author = "several authors",
     .methods = &lights_module_methods,
 };
