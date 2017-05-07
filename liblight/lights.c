@@ -311,6 +311,9 @@ set_light_buttons(struct light_device_t *dev,
     int brightness = rgb_to_brightness(state);
     char buffer[25];
 
+    if(brightness > 200)
+	brightness = 200;
+
     ALOGD("set_speaker_light_buttons brightness: %d", brightness);
 
 //    read_int(LCD_FILE, &lcd_on);
@@ -323,9 +326,9 @@ set_light_buttons(struct light_device_t *dev,
     if(brightness == 0 && is_charging == 1){    // buttons on & charging
         write_int(LED_OUTN, 0);
         write_int(LED_MODE, 0);
-        write_int(LED_OUTN, HOME_MASK);
-        write_str(LED_FADE, "4 0 4");
-        write_str(LED_GRADE, "255");
+        write_int(LED_OUTN, LR_MASK);
+        write_str(LED_FADE, "0 3 1");
+        write_str(LED_GRADE, "0 200");
         write_int(LED_MODE, AW_FADE_AUTO);
         btn_state = 0;
     } else if(brightness != 0 && !btn_state) {                // turn buttons on
@@ -338,7 +341,7 @@ set_light_buttons(struct light_device_t *dev,
 	if (btn_state)
 	{
         write_int(LED_OUTN, HOME_MASK);
-        write_str(LED_FADE, "0 1 0");
+        write_str(LED_FADE, "1 3 0");
         write_str(LED_GRADE, "44 brightness");
         write_int(LED_MODE, AW_FADE_CYCLE);
 	btn_state = 1;
