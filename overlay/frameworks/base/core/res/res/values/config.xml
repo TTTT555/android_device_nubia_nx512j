@@ -358,4 +358,8 @@
         <item>"/system/framework/arm64/boot.oat"</item>
         <item>"/system/framework/arm64/boot-core-libart.oat"</item>
    </string-array>
+   <!-- Indicate whether closing the lid causes the device to go to sleep and opening		
+         it causes the device to wake up.		
+         The default is false. -->		
+    <bool name="config_lidControlsSleep">true</bool>
 </resources>
