@@ -1,0 +1,2 @@
+#============= netd ==============
+allow netd untrusted_app:unix_stream_socket { getopt read setopt write };

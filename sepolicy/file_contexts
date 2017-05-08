@@ -1,0 +1,7 @@
+/system/bin/akmd09911                   u:object_r:akmd_exec:s0
+/dev/akm09911                           u:object_r:sensors_device:s0
+/dev/akm09911_dev                       u:object_r:sensors_device:s0
+/system/bin/akmd                	u:object_r:akmd_exec:s0
+
+# NFC
+/dev/bcm2079x-i2c                       u:object_r:nfc_device:s0
