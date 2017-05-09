@@ -225,8 +225,8 @@ on boot
     class core
     user root
     group root system misc input
-    seclabel u:r:system_app:s0
-    oneshot  
+    seclabel u:r:system_server:s0
+    oneshot 
 
 service tp_node /system/bin/sh /tp_node.sh
     class main

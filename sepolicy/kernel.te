@@ -13,3 +13,5 @@ allow kernel perfprofd:process setsched;
 allow kernel platform_app:process setsched;
 allow kernel servicemanager:process setsched;
 allow kernel surfaceflinger:process setsched;
+allow kernel untrusted_app:fd use;
+allow kernel untrusted_app_tmpfs:file write;
