@@ -1,7 +1,13 @@
-/system/bin/akmd09911                   u:object_r:akmd_exec:s0
+#Sensors
+/system/bin/akmd09911			u:object_r:sensors_device:s0
 /dev/akm09911                           u:object_r:sensors_device:s0
 /dev/akm09911_dev                       u:object_r:sensors_device:s0
 /system/bin/akmd                	u:object_r:akmd_exec:s0
 
 # NFC
-/dev/bcm2079x-i2c                       u:object_r:nfc_device:s0
+/dev/bcm2079x				u:object_r:nfc_device:s0
+
+# Touchpanel
+/sys/bus/i2c/devices/2-004a/easy_wakeup_gesture                     u:object_r:touchpanel_sysfs:s0
+/sys/bus/i2c/devices/2-005d/wakeup_gesture                          u:object_r:touchpanel_sysfs:s0
+/sys/bus/i2c/devices/2-0024/easy_wakeup_gesture                     u:object_r:touchpanel_sysfs:s0
