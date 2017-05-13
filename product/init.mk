@@ -8,6 +8,5 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     fstab.qcom \
     init.target.rc \
-    tp_node.sh
-
-
+    tp_node.sh \
+    init.qcom.ssr.rc
