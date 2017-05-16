@@ -25,7 +25,6 @@ PRODUCT_COPY_FILES += \
  $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
  $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
-
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1 \
@@ -39,4 +38,3 @@ PRODUCT_BOOT_JARS += \
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=true
-

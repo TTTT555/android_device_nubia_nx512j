@@ -35,4 +35,5 @@ BOARD_USES_QC_TIME_SERVICES := true
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_RIL_VARIANT := caf
 
+#This is needed for zte camera blobs
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
