@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -43,21 +43,11 @@ write_headers
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
 
-# Qualcomm BSP blobs - we put a conditional around here
-# in case the BSP is actually being built
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
-
-write_makefiles "$MY_DIR"/proprietary-files-qc.txt
-
-echo "endif" >> "$PRODUCTMK"
-
 cat << EOF >> "$ANDROIDMK"
-endif
 
+\$(shell mkdir -p \$(PRODUCT_OUT)/system/vendor/lib/egl && pushd \$(PRODUCT_OUT)/system/vendor/lib > /dev/null && ln -s egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
+\$(shell mkdir -p \$(PRODUCT_OUT)/system/vendor/lib64/egl && pushd \$(PRODUCT_OUT)/system/vendor/lib64 > /dev/null && ln -s egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
 EOF
-
-printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8916/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
 
 # We are done!
 write_footers
