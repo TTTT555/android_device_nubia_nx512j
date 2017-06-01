@@ -30,6 +30,7 @@ else
 endif
 
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_CFLAGS += -DLOG_TAG=\"Sensors\"
 ifeq ($(call is-board-platform,msm8960),true)
