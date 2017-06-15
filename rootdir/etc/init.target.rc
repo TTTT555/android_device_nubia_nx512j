@@ -236,8 +236,3 @@ service tp_node /system/bin/sh /tp_node.sh
     user root
     group root
     oneshot
-
-# Fix torch on notification drawer
-on property:sys.boot_completed=1
-    restart media
-
