@@ -9,7 +9,6 @@ allow kernel logd:process setsched;
 allow kernel mm-qcamerad:process setsched;
 allow kernel msm_irqbalanced:process setsched;
 allow kernel perfd:process setsched;
-allow kernel perfprofd:process setsched;
 allow kernel platform_app:process setsched;
 allow kernel servicemanager:process setsched;
 allow kernel surfaceflinger:process setsched;
