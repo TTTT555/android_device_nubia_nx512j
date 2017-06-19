@@ -27,6 +27,8 @@ allow kernel mediaserver:process setsched;
 allow kernel vold:process setsched;
 allow kernel zygote:process setsched;
 allow kernel netmgrd:process setsched;
+allow kernel perfprofd:process setsched;
 allow kernel qmuxd:process setsched;
+allow kernel rmt_storage:process setsched;
 allow kernel thermal-engine:process setsched;
 allow kernel time_daemon:process setsched;
