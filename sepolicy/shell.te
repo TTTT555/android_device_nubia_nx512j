@@ -2,3 +2,4 @@
 #allow shell debugfs:dir { open read };
 #allow shell debugfs:file { getattr open read };
 #allow shell su:process signal;
+allow shell pstorefs:dir { open read };
