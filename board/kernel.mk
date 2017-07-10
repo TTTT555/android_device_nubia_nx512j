@@ -11,4 +11,4 @@ TARGET_KERNEL_SOURCE := kernel/nubia/nx512j
 ifneq ($(FORCE_32_BIT),true)
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 endif
-TARGET_KERNEL_CONFIG := nx512j_defconfig
+TARGET_KERNEL_CONFIG := lineageos_nx512j_defconfig
