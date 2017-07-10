@@ -1,11 +1,7 @@
 [
   {
-    "repository": "Bauuuuu/android_kernel_nubia_nx512j",
+    "repository": "Bauuuuu/android_kernel_nubia_msm8939",
     "target_path": "kernel/nubia/nx512j"
-  },
-  {
-    "repository": "Bauuuuu/android_vendor_nubia_nx512j",
-    "target_path": "vendor/nubia/nx512j"
   },
   {
     "repository": "LineageOS/android_external_mm-dash",
@@ -15,12 +11,4 @@
     "repository": "LineageOS/android_device_qcom_common",
     "target_path": "device/qcom/common"
   },
-  {
-    "repository": "LineageOS/android_external_stlport",
-    "target_path": "external/stlport"
-  },
-  {
-    "repository": "LineageOS/android_external_sony_boringssl-compat",
-    "target_path": "external/sony/boringssl-compat"
-  } 
 ]
