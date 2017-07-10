@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Properties
+TARGET_OTA_ASSERT_DEVICE := NX512J,nx512j
 
 VENDOR_PATH := device/nubia/nx512j
 include device/nubia/nx512j/board/*.mk
