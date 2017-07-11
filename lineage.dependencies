@@ -1,7 +1,7 @@
 [
   {
     "repository": "Bauuuuu/android_kernel_nubia_msm8939",
-    "target_path": "kernel/nubia/nx512j"
+    "target_path": "kernel/nubia/msm8939"
   },
   {
     "repository": "LineageOS/android_external_mm-dash",
