@@ -1,3 +1,0 @@
-allow init sensors_device:file { execute getattr open read };
-allow init debugfs:dir mounton;
-allow init debugfs:file { getattr open read };

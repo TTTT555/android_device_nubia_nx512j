@@ -1,3 +1,0 @@
-#============= priv_app ==============
-allow priv_app device:dir { open read };
-allow priv_app storage_stub_file:dir getattr;
