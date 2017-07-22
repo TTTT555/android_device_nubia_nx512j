@@ -220,12 +220,11 @@ on boot
     chmod 0666 /sys/class/leds/button-backlight/brightness
 
 #start the compass servie
-    service akmd  /system/bin/akmd09911
+service akmd /system/bin/akmd09911
     class core
     user root
     group root system misc input
-    seclabel u:r:system_server:s0
-    oneshot 
+    oneshot
 
 service tp_node /system/bin/sh /tp_node.sh
     class main
