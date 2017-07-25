@@ -51,7 +51,7 @@ lib/libmorpho_memory_allocator.so
 lib/libmorpho_strobe_photo_jni.so
 lib/libobjectclear.so
 lib/libqomx_core.so
-lib/hw/camera.vendor.msm8916.so
+lib/hw/camera.msm8916.so
 lib64/libAlgorithm.so
 lib64/libalRnB.so
 lib64/libalSDE2.so
