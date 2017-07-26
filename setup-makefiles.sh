@@ -45,9 +45,5 @@ write_headers
 write_makefiles "$MY_DIR"/proprietary-files.txt
 write_makefiles "$MY_DIR"/proprietary-files-qc.txt
 
-cat << EOF >> "$ANDROIDMK"
-
-EOF
-
 # Finish
 write_footers
