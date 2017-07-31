@@ -14,5 +14,5 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 
 # OpenGLES
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196610
-
+    ro.opengles.version=196610 \
+    debug.hwui.use_buffer_age=false
