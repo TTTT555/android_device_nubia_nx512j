@@ -1,8 +1,13 @@
 # Display
 PRODUCT_PACKAGES += \
-    copybit.msm8916 \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
     gralloc.msm8916 \
     hwcomposer.msm8916 \
+    libgenlock \
     libtinyxml \
     memtrack.msm8916
 
@@ -12,5 +17,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.idletime=600 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
-    debug.enable.sglscale=1 \
-    ro.opengles.version=196609
+    debug.enable.sglscale=1
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
