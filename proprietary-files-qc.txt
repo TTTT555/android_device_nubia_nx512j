@@ -422,5 +422,4 @@ vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # WiFi
--lib64/libwpa_qmi_eap_proxy.so
 lib64/libwcnss_qmi.so
