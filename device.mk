@@ -14,10 +14,11 @@
 # limitations under the License.
 #
 
-# Include package config fragments
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
+
 include $(LOCAL_PATH)/product/*.mk
 
 $(call inherit-product, vendor/nubia/nx512j/nx512j-vendor.mk)
-
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
