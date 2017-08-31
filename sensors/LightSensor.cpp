@@ -29,7 +29,7 @@
 #include "sensors.h"
 #include "LightSensor.h"
 
-#define EVENT_TYPE_LIGHT		ABS_MISC
+#define EVENT_TYPE_LIGHT		REL_X
 /*****************************************************************************/
 
 enum input_device_name {
@@ -251,7 +251,7 @@ int LightSensor::readEvents(sensors_event_t* data, int count)
 
 	while (count && mInputReader.readEvent(&event)) {
 		int type = event->type;
-		if (type == EV_ABS) {
+		if (type == EV_REL) {
 			if (event->code == EVENT_TYPE_LIGHT) {
 				mPendingEvent.light = convertEvent(event->value);
 			}

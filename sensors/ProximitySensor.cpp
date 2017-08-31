@@ -29,7 +29,7 @@
 #include "ProximitySensor.h"
 #include "sensors.h"
 
-#define EVENT_TYPE_PROXIMITY		ABS_DISTANCE
+#define EVENT_TYPE_PROXIMITY		REL_X
 
 #define PROXIMITY_THRESHOLD                    5.0f
 
@@ -226,7 +226,7 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
 
     while (count && mInputReader.readEvent(&event)) {
         int type = event->type;
-        if (type == EV_ABS) {
+        if (type == EV_REL) {
             if (event->code == EVENT_TYPE_PROXIMITY) {
                 if (event->value != -1) {
                     // FIXME: not sure why we're getting -1 sometimes
@@ -298,7 +298,14 @@ int ProximitySensor::setDelay(int32_t, int64_t ns)
 
 float ProximitySensor::indexToValue(size_t index) const
 {
-    return index * res;
+   /* stock range near=3.0 cm & far =10.0cm
+      convert to the specified range*/
+      if (index < 300) {
+        index = 300;
+    } else if (index > 1000) {
+        index = 1000;
+    }
+    return 3000 / index * res; 
 }
 
 int ProximitySensor::calibrate(int32_t, struct cal_cmd_t *para,
