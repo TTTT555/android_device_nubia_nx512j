@@ -37,4 +37,4 @@ PRODUCT_BOOT_JARS += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
+    ro.sys.sdcardfs=false
