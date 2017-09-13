@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2017 LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,3 +61,4 @@ void _ZN7android13SensorManagerC1Ev(void *sensorMgr)
     /* for nubia camera stock app */
 extern void _ZN8SkBitmap9setConfigENS_6ConfigEiij11SkAlphaType() {}
 extern void _ZN8SkBitmap9setConfigENS_6ConfigEiim11SkAlphaType() {}
+extern void _ZN14SkImageDecoder10DecodeFileEPKcP8SkBitmap11SkColorTypeNS_4ModeEPNS_6FormatE() {}
