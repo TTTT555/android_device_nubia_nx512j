@@ -392,10 +392,9 @@ vendor/lib/libxml.so
 vendor/lib/libmdmdetect.so
 vendor/lib/libcneapiclient.so
 
-#Sensors
-bin/akmd09911
-lib/hw/sensors.msm8916.so
-lib64/hw/sensors.msm8916.so
+#Gyro calibration blobs from stock CN-Common V9.29
+vendor/lib/libcalmodule_gyroscope.so|6c3af5d3657d3072e78eb01127a3a150f1987123
+vendor/lib64/libcalmodule_gyroscope.so|d97889795bd40aafa8e7987f9c308a245df46126
 
 # Thermal
 vendor/bin/thermal-engine
