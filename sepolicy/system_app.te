@@ -1,3 +1,0 @@
-# Settings access to gesture_ctrl
-allow system_app touchpanel_sysfs:file rw_file_perms;
-allow system_app sensors_device:chr_file rw_file_perms;
