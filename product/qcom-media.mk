@@ -16,8 +16,6 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw \
-    qcmediaplayer \
-    libqcmediaplayer \
     libextmedia_jni \
     libstagefright_soft_flacdec
 
@@ -31,9 +29,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vidc.enc.narrow.searchrange=1 \
     media.stagefright.legacyencoder=true \
     media.stagefright.less-secure=true
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
