@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 
 if [ ! -d "/data/tp" ]; then
     mkdir /data/tp

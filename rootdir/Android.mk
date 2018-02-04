@@ -19,11 +19,11 @@ LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := tp_node.sh
+LOCAL_MODULE       := tp.node.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/tp_node.sh
-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+LOCAL_SRC_FILES    := bin/tp.node.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
 include $(BUILD_PREBUILT)
 
 
@@ -33,7 +33,8 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.mem.sh
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.qcom.mem.sh
+LOCAL_SRC_FILES    := bin/init.qcom.mem.sh
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_EXECUTABLES)
 include $(BUILD_PREBUILT)
 
 # Init scripts

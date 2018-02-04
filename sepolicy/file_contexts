@@ -1,2 +1,7 @@
 # NFC
-/dev/bcm2079x                                           u:object_r:nfc_device:s0
+/dev/bcm2079x                                       u:object_r:nfc_device:s0
+
+# Shell files
+/system/vendor/bin/init\.qcom\.mem\.sh              u:object_r:qti_init_shell_exec:s0
+/system/vendor/bin/tp\.node\.sh                     u:object_r:qti_init_shell_exec:s0
+
