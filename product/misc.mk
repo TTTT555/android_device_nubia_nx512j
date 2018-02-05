@@ -2,7 +2,8 @@
 PRODUCT_PACKAGES += \
     libstlport \
     libboringssl-compat \
-    libzte_camera
+    libzte_camera \
+    libshim_atomic
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.model=NX512J \

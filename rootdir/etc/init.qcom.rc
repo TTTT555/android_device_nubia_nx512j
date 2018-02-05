@@ -42,7 +42,7 @@ on early-init
     write /sys/class/leds/lcd-backlight/trigger "backlight"
 
 on init
-
+    export LD_PRELOAD libshim_atomic.so
     export LD_SHIM_LIBS "/system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so:/system/vendor/lib/libmmcamera2_sensor_modules.so|libzte_camera.so:/system/lib/libbuffer_manager.so|libzte_camera.so:/system/vendor/lib/libmmcamera2_stats_modules.so|libzte_camera.so"
 
     # Set permissions for persist partition
