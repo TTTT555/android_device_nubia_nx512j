@@ -11,6 +11,10 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     memtrack.msm8916
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/vendor/etc/permissions/android.hardware.opengles.aep.xml
+
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=c2d \
