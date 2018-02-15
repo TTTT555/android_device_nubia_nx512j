@@ -391,7 +391,7 @@ vendor/lib/libcalmodule_gyroscope.so|6c3af5d3657d3072e78eb01127a3a150f1987123
 vendor/lib64/libcalmodule_gyroscope.so|d97889795bd40aafa8e7987f9c308a245df46126
 
 # Thermal
-vendor/bin/thermal-engine
+vendor/bin/thermal-engine|5d2739ab2ea6b7c3027befd8d295f938db14399a
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 vendor/lib/libthermalclient.so
