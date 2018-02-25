@@ -27,9 +27,9 @@
 
 # filename              partition
 
-NON-HLOS.bin            /dev/block/bootdevice/by-name/modem
-sbl1.mbn                /dev/block/bootdevice/by-name/sbl1
-tz.mbn                  /dev/block/bootdevice/by-name/tz
-rpm.mbn                 /dev/block/bootdevice/by-name/rpm
-emmc_appsboot.mbn       /dev/block/bootdevice/by-name/aboot
-hyp.mbn                 /dev/block/bootdevice/by-name/hyp
+NON-HLOS.bin            /dev/block/platform/soc.0/7824900.sdhci/by-name/modem
+sbl1.mbn                /dev/block/platform/soc.0/7824900.sdhci/by-name/sbl1
+tz.mbn                  /dev/block/platform/soc.0/7824900.sdhci/by-name/tz
+rpm.mbn                 /dev/block/platform/soc.0/7824900.sdhci/by-name/rpm
+emmc_appsboot.mbn       /dev/block/platform/soc.0/7824900.sdhci/by-name/aboot
+hyp.mbn                 /dev/block/platform/soc.0/7824900.sdhci/by-name/hyp

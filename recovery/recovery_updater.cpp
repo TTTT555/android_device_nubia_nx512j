@@ -36,7 +36,7 @@
 #define ALPHABET_LEN 256
 #define KB 1024
 
-#define TZ_PART_PATH "/dev/block/bootdevice/by-name/tz"
+#define TZ_PART_PATH "/dev/block/platform/soc.0/7824900.sdhci/by-name/tz"
 #define TZ_VER_STR "QC_IMAGE_VERSION_STRING="
 #define TZ_VER_STR_LEN 24
 #define TZ_VER_BUF_LEN 255
