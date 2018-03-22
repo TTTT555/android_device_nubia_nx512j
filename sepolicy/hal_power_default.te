@@ -2,3 +2,5 @@
 allow hal_power_default tpnode_sysfs:dir search;
 allow hal_power_default tpnode_sysfs:file { open write };
 allow hal_power_default system_data_file:lnk_file read;
+allow hal_power_default proc_touchpanel:dir search;
+allow hal_power_default proc_touchpanel:file { open write };
