@@ -5,8 +5,11 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.disableWifiApFirmwareReload=true \
     wifi.interface=wlan0
+
+# Wi-Fi display
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1
 
 # WiFi HAL
 PRODUCT_PACKAGES += \
