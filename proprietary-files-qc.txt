@@ -109,6 +109,7 @@ vendor/lib/libmmipl.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
+vendor/lib/libstlport.so|e61ef21decc21472e06eacc841e7d61bf68ca9f3
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib64/libmmcamera2_frame_algorithm.so
