@@ -371,7 +371,6 @@ lib64/librilqmiservices.so
 lib64/librmnetctl.so
 lib/librmnetctl.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-vendor/lib64/libcneapiclient.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
@@ -386,7 +385,6 @@ vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 vendor/lib/libxml.so
 vendor/lib/libmdmdetect.so
-vendor/lib/libcneapiclient.so
 
 #Gyro calibration blobs from stock CN-Common V9.29
 vendor/lib/libcalmodule_gyroscope.so|6c3af5d3657d3072e78eb01127a3a150f1987123

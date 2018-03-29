@@ -36,3 +36,7 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2 \
     sockev
+
+# Netmgrd
+PRODUCT_PACKAGES += \
+    libcneapiclient
