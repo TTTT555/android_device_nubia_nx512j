@@ -19,8 +19,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999 \
     ro.telephony.default_network=9,9 \
     ril.subscription.types=NV,RUIM \
-    telephony.lteOnGsmDevice=1 \
-    telephony.lteOnCdmaDevice=0 \
     ro.telephony.ril.config=simactivation,sim2gsmonly
 
 # RIL
@@ -34,8 +32,7 @@ endif
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
-    libxml2 \
-    sockev
+    libxml2
 
 # Netmgrd
 PRODUCT_PACKAGES += \

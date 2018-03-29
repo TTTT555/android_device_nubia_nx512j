@@ -368,8 +368,6 @@ etc/capability.xml
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
 lib64/librilqmiservices.so
-lib64/librmnetctl.so
-lib/librmnetctl.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
