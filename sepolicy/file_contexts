@@ -5,3 +5,8 @@
 /system/vendor/bin/init\.qcom\.mem\.sh              u:object_r:qti_init_shell_exec:s0
 /system/vendor/bin/tp\.node\.sh                     u:object_r:qti_init_shell_exec:s0
 
+#tp.node data files 
+/data/tp(/.*)?                                               u:object_r:system_data_file:s0
+
+#tp.node sysfs
+/sys/devices/soc\.0/78b9000\.i2c/i2c-5(/.*)?                 u:object_r:tpnode_sysfs:s0

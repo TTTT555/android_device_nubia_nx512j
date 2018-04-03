@@ -1,0 +1,2 @@
+# /data/tp
+type tpnode_sysfs, sysfs_type, fs_type;
