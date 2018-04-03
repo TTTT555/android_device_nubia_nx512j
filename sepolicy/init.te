@@ -1,1 +1,4 @@
 allow init debugfs:file write;
+
+# required for LD_PRELOAD
+allow init { domain -lmkd -crash_dump }:process noatsecure;
