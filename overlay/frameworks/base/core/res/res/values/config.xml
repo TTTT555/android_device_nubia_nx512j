@@ -40,10 +40,19 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
+        <item>2</item>
+        <item>7</item>
         <item>15</item>
-        <item>150</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>400</item>
         <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
         <item>5000</item>
+        <item>9900</item>
+        <item>10000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -52,11 +61,20 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>4</item>   <!-- 0-380 -->
-        <item>26</item>   <!-- 380-1025 -->
-        <item>65</item>   <!-- 1025-8300 -->
-        <item>135</item>   <!-- 8300-10000 -->
-        <item>255</item>   <!-- 10000+ -->
+        <item>13</item>   <!-- 0-2 -->
+        <item>25</item>   <!-- 3-7 -->
+        <item>32</item>   <!-- 5-15 -->
+        <item>41</item>   <!-- 15-50 -->
+        <item>52</item>   <!-- 50-100 -->
+        <item>62</item>   <!-- 100-200 -->
+        <item>69</item>   <!-- 200-400 -->
+        <item>78</item>   <!-- 400-1000 -->
+        <item>88</item>   <!-- 1000-2000 -->
+        <item>134</item>  <!-- 2000-3000 -->
+        <item>178</item>  <!-- 3000-5000 -->
+        <item>225</item>  <!-- 5000-9900 -->
+        <item>255</item>  <!-- 9900-10000 -->
+        <item>255</item>  <!-- 10000+ -->
     </integer-array>
 
     <!-- Minimum allowable screen brightness to use in a very dark room.
@@ -69,17 +87,32 @@
     <integer name="config_screenBrightnessDark">2</integer>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">7</integer>
+    <integer name="config_screenBrightnessDim">2</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">7</integer>
+    <integer name="config_screenBrightnessSettingMinimum">2</integer>
 
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
                   config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
     <bool name="config_automatic_brightness_available">true</bool>
 
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">5000</integer>
+
+    <!-- Whether or not to skip the initial brightness ramps when the display transitions to
+         STATE_ON. Setting this to true will skip the brightness ramp to the last stored active
+         brightness value and will repeat for the following ramp if autobrightness is enabled. -->
+    <bool name="config_skipScreenOnBrightnessRamp">true</bool>
+
+
     <bool name="config_allowAllRotations">true</bool>
+
 
     <!-- Base "touch slop" value used by ViewConfiguration as a
          movement threshold where scrolling should begin. -->
