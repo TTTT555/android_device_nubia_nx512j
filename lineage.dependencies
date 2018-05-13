@@ -1,9 +1,5 @@
 [
   {
-    "repository": "android_kernel_nubia_msm8939",
-    "target_path": "kernel/nubia/msm8939"
-  },
-  {
     "repository": "android_device_qcom_common",
     "target_path": "device/qcom/common"
   },

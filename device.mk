@@ -24,4 +24,4 @@ PRODUCT_ENFORCE_RRO_TARGETS := framework-res
 # Include package config fragments
 include $(LOCAL_PATH)/product/*.mk
 
-$(call inherit-product, vendor/nubia/nx512j/nx512j-vendor.mk)
+$(call inherit-product, vendor/nubia/nx511j/nx511j-vendor.mk)
