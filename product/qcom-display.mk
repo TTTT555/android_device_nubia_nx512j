@@ -11,7 +11,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8916 \
     libgenlock \
     libtinyxml \
-    memtrack.msm8916
+    memtrack.msm8916 
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -29,3 +29,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl \
     android.hardware.renderscript@1.0-service
+
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@1.0-service-legacymm
