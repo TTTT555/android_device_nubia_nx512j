@@ -1,5 +1,5 @@
 
-Lineage OS 15.1 (Android 8.1 Oreo)
+Resurrection Remix 6.0 (Android 8.1 Oreo)
 device configuration for 
 ZTE Nubia Z9 Mini NX511J
 =====================================
@@ -20,4 +20,4 @@ Release Date | March 2015
 
 ![ZTE Nubia Z9 Mini](http://static.nubia.cn/product/max/images/params/params_z9max02.jpg "ZTE Nubia Z9 Mini")
 
-P.S. After "lunch", check the availability of repositories in your work directory, specified in lineage.dependencies, and add them manually, if they are missing.
+P.S. After "lunch", check the availability of repositories in your work directory, specified in rr.dependencies, and add them manually, if they are missing.
