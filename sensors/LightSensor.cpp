@@ -32,6 +32,9 @@
 #define EVENT_TYPE_LIGHT		REL_X
 /*****************************************************************************/
 
+static int gLight = 400; //initialization of auxiliary variables for the function 'convertEvent'
+static bool gFullBr = false;
+
 enum input_device_name {
 	GENERIC_LS = 0,
 	LIGHTSENSOR_LEVEL,
@@ -288,23 +291,20 @@ int LightSensor::readEvents(sensors_event_t* data, int count)
 
 float LightSensor::convertEvent(int value)
 {
-	float lux = 0;
+//we eliminate the parasitic value '10001' at medium illumination levels
 
-	if (sensor_index >= 0) {
-		if (input_report_type[sensor_index] == TYPE_ADC) {
-			// Convert adc value to lux assuming:
-			// I = 10 * log(Ev) uA
-			// R = 47kOhm
-			// Max adc value 4095 = 3.3V
-			// 1/4 of light reaches sensor
-			lux =  powf(10, value * (330.0f / 4095.0f / 47.0f)) * 4;
-		} else if (input_report_type[sensor_index] == TYPE_LUX) {
-			lux = value;
-		} else {
-			ALOGE("LightSensor: unknown report type\n");
-			lux = 0;
-		}
-	}
+      if (value == 10001) {  
+           if (gFullBr == true) { //check for the presence of real maximum brightness
+              value = 10000;
+              gFullBr = true; }
+           else {
+                value = gLight;
+                gFullBr = true; }
+    } else { 
+        gLight = value;
+        gFullBr = false;
+    }
+        
+	return value;
 
-	return lux;
 }
