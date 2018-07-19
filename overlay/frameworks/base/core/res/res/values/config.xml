@@ -49,7 +49,7 @@
         <item>400</item>
         <item>1000</item>
         <item>2000</item>
-        <item>3000</item>
+        <item>3600</item>
         <item>5000</item>
         <item>9900</item>
         <item>10000</item>
@@ -61,20 +61,28 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>13</item>   <!-- 0-2 -->
+        <item>7</item>   <!-- 0-2 -->
         <item>25</item>   <!-- 3-7 -->
-        <item>32</item>   <!-- 5-15 -->
-        <item>41</item>   <!-- 15-50 -->
-        <item>52</item>   <!-- 50-100 -->
-        <item>62</item>   <!-- 100-200 -->
-        <item>69</item>   <!-- 200-400 -->
-        <item>78</item>   <!-- 400-1000 -->
-        <item>88</item>   <!-- 1000-2000 -->
-        <item>134</item>  <!-- 2000-3000 -->
-        <item>178</item>  <!-- 3000-5000 -->
-        <item>225</item>  <!-- 5000-9900 -->
+        <item>29</item>   <!-- 7-15 -->
+        <item>37</item>   <!-- 15-50 -->
+        <item>48</item>   <!-- 50-100 -->
+        <item>58</item>   <!-- 100-200 -->
+        <item>98</item>   <!-- 200-400 -->
+        <item>126</item>   <!-- 400-1000 -->
+        <item>182</item>   <!-- 1000-2000 -->
+        <item>217</item>  <!-- 2000-3000 -->
+        <item>255</item>  <!-- 3600-5000 -->
+        <item>255</item>  <!-- 5000-9900 -->
         <item>255</item>  <!-- 9900-10000 -->
         <item>255</item>  <!-- 10000+ -->
+    </integer-array>
+
+    <!-- Array of output values for button backlight corresponding to the LUX values
+         in the config_autoBrightnessLevels array.  This array should have size one greater
+         than the size of the config_autoBrightnessLevels array.
+         The brightness values must be between 0 and 255 and be non-decreasing.
+         This must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessButtonBacklightValues">
     </integer-array>
 
     <!-- Minimum allowable screen brightness to use in a very dark room.
@@ -102,14 +110,13 @@
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">5000</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">0</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">1500</integer>
 
     <!-- Whether or not to skip the initial brightness ramps when the display transitions to
          STATE_ON. Setting this to true will skip the brightness ramp to the last stored active
          brightness value and will repeat for the following ramp if autobrightness is enabled. -->
     <bool name="config_skipScreenOnBrightnessRamp">true</bool>
-
 
     <bool name="config_allowAllRotations">true</bool>
 
