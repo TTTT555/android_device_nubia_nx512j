@@ -38,6 +38,7 @@
 /*****************************************************************************/
 
 static int gTresh1 = 2000; //initialization of auxiliary variables for the function 'indexToValue'
+static int gCal = 1023;
 static bool gNear = false;
 
 enum input_device_name {
@@ -271,7 +272,8 @@ float ProximitySensor::indexToValue(size_t index) const
 {
    // stock values NEAR=3.0 cm & FAR =10.0cm
 
-      if (index > 900) {  //when the sensor is covered, the index resets the value to 900-1023 after turning the screen on / off
+      if (index > (gCal-123)) {  //when the sensor is covered, the index resets to max index value after turning the screen on/off with an error of 123
+        gCal = index;
         gTresh1 = index;
         gNear = true;
         index = 3;
