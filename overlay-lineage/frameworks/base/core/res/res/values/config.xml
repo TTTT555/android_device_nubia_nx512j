@@ -19,8 +19,5 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
-	
-    <!-- Enable blur support -->	
-<!--    <bool name="config_uiBlurEnabled">true</bool> -->
+
 </resources>
