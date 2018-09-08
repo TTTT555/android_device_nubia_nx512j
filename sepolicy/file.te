@@ -1,2 +1,3 @@
 # /data/tp
 type tpnode_sysfs, sysfs_type, fs_type;
+type proc_touchpanel, fs_type;
