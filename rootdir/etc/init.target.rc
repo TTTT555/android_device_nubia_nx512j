@@ -26,7 +26,8 @@
 #
 
 on init
-   write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+    mount none /system/etc/usb_audio_policy_configuration.xml /vendor/etc/usb_audio_policy_configuration.xml bind
 
 on boot
     # change file owner for factory test
