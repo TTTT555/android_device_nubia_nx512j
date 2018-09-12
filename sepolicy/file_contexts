@@ -8,6 +8,10 @@
 #tp.node sysfs
 /sys/devices/soc\.0/78b9000\.i2c/i2c-5(/.*)?                 u:object_r:tpnode_sysfs:s0
 
+# Vulkan
+/system/vendor/lib/hw/vulkan\.msm8916\.so    u:object_r:same_process_hal_file:s0
+/system/vendor/lib(64)?/hw/vulkan\.msm8916\.so    u:object_r:same_process_hal_file:s0
+
 # Audio
 /system/etc/usb_audio_policy_configuration.xml    u:object_r:vendor_configs_file:s0
 
