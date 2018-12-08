@@ -358,4 +358,7 @@
         <item>LPP_PROFILE=0</item>
     </string-array>
 
+<!-- Is the device capable of hot swapping an ICC Card -->
+    <bool name="config_hotswapCapable">true</bool>
+
 </resources>
