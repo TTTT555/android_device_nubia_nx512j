@@ -14,6 +14,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
-# FlipFlap- smartcover app
-#PRODUCT_PACKAGES += \
-#    FlipFlap
+# FRP
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.frp.pst=/dev/block/platform/soc.0/7824900.sdhci/by-name/config

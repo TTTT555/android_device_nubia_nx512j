@@ -209,3 +209,7 @@
 
 # drv2605 LRA vibrator
 /dev/drv2605              0660   system     system
+
+# Add device block for FRP
+/dev/block/platform/soc.0/7824900.sdhci/by-name/config    0660   system     system
+
