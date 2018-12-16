@@ -64,6 +64,14 @@ on fs
 # msm specific files that need to be created on /data
 on post-fs-data
 
+    # AK09911 calibration file directory
+    mkdir /data/misc/akmd 0770 system compass
+    mkdir /data/misc/akmd2 0770 system compass
+
+    #Other sensor calibration file directory
+    mkdir /data/misc/sensor 0775 system system
+    restorecon_recursive /data/misc/sensor
+
     mkdir /data/fdAlbum 0770 camera camera
     mkdir /data/misc/camera 0770 camera camera
 
