@@ -1,15 +1,65 @@
 cc_library_static {
-    name: "multihal-nx511j",
+    name: "multihal-nubia",
     vendor: true,
     srcs: [
         "multihal.cpp",
-        "SensorEventQueue.cpp"
+        "SensorEventQueue.cpp",
     ],
     shared_libs: [
         "liblog",
         "libcutils",
         "libutils",
-        "libdl"
+        "libdl",
     ],
     export_include_dirs: ["."],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.sensors@1.0-impl-nubia",
+    defaults: ["hidl_defaults"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: ["Sensors.cpp"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libhwbinder",
+        "libutils",
+        "libhardware",
+        "android.hardware.sensors@1.0",
+    ],
+    static_libs: [
+        "android.hardware.sensors@1.0-convert",
+        "multihal-nubia",
+    ],
+    local_include_dirs: ["include/sensors"],
+}
+
+cc_binary {
+    name: "android.hardware.sensors@1.0-service-nubia",
+    defaults: ["hidl_defaults"],
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.sensors@1.0-service-nubia.rc"],
+    srcs: ["service.cpp"],
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libhwbinder",
+        "libutils",
+        "libhardware",
+        "android.hardware.sensors@1.0",
+    ],
+    arch: {
+        arm: {
+            cflags: ["-DARCH_ARM_64"],
+        },
+    },
 }

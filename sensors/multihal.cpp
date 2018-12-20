@@ -18,7 +18,7 @@
 #include "multihal.h"
 
 #define LOG_NDEBUG 1
-#include <cutils/log.h>
+#include <log/log.h>
 #include <cutils/atomic.h>
 #include <hardware/sensors.h>
 
@@ -475,6 +475,7 @@ static int device__close(struct hw_device_t *dev) {
     sensors_poll_context_t* ctx = (sensors_poll_context_t*) dev;
     if (ctx != NULL) {
         int retval = ctx->close();
+        ALOGV("retval %d", retval);
         delete ctx;
     }
     return 0;
@@ -500,13 +501,19 @@ static int device__poll(struct sensors_poll_device_t *dev, sensors_event_t* data
 
 static int device__batch(struct sensors_poll_device_1 *dev, int handle,
         int flags, int64_t period_ns, int64_t timeout) {
+    (void)flags;
+    (void)timeout;
     sensors_poll_context_t* ctx = (sensors_poll_context_t*) dev;
-    return ctx->batch(handle, flags, period_ns, timeout);
+
+    ctx->setDelay(handle, period_ns);
+
+    return 0;
 }
 
 static int device__flush(struct sensors_poll_device_1 *dev, int handle) {
-    sensors_poll_context_t* ctx = (sensors_poll_context_t*) dev;
-    return ctx->flush(handle);
+    (void)dev;
+    (void)handle;
+    return -EINVAL;
 }
 
 static int device__inject_sensor_data(struct sensors_poll_device_1 *dev,
@@ -517,15 +524,6 @@ static int device__inject_sensor_data(struct sensors_poll_device_1 *dev,
 
 static int open_sensors(const struct hw_module_t* module, const char* name,
         struct hw_device_t** device);
-
-static bool starts_with(const char* s, const char* prefix) {
-    if (s == NULL || prefix == NULL) {
-        return false;
-    }
-    size_t s_size = strlen(s);
-    size_t prefix_size = strlen(prefix);
-    return s_size >= prefix_size && strncmp(s, prefix, prefix_size) == 0;
-}
 
 /*
  * Adds valid paths from the config file to the vector passed in.
@@ -606,18 +604,31 @@ static void lazy_init_modules() {
 }
 
 /*
- * Fix the flags of the sensor to be compliant with the API version
+ * Fix the fields of the sensor to be compliant with the API version
  * reported by the wrapper.
  */
-static void fix_sensor_flags(int version, sensor_t& sensor) {
-    if (version < SENSORS_DEVICE_API_VERSION_1_3) {
-        if (sensor.type == SENSOR_TYPE_PROXIMITY ||
-                sensor.type == SENSOR_TYPE_TILT_DETECTOR) {
-            int new_flags = SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE;
-            ALOGV("Changing flags of handle=%d from %x to %x",
-                    sensor.handle, sensor.flags, new_flags);
-            sensor.flags = new_flags;
-        }
+static void fix_sensor_fields(sensor_t& sensor) {
+    /*
+     * Becasue batching and flushing don't work modify the
+     * sensor fields to not report any fifo counts.
+     */
+    sensor.fifoReservedEventCount = 0;
+    sensor.fifoMaxEventCount = 0;
+
+    switch (sensor.type) {
+    /*
+     * Use the flags suggested by the sensors documentation.
+     */
+    case SENSOR_TYPE_TILT_DETECTOR:
+        sensor.flags = SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE;
+        break;
+    /*
+     * Report a proper range to fix doze proximity check.
+     */
+    case SENSOR_TYPE_PROXIMITY:
+        sensor.flags = SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE;
+        sensor.maxRange = 5.0;
+        break;
     }
 }
 
@@ -680,9 +691,7 @@ static void lazy_init_sensors_list() {
             ALOGV("module_index %d, local_handle %d, global_handle %d",
                     module_index, local_handle, global_handle);
 
-            int version = sub_hw_versions->at(*it);
-            fix_sensor_flags(version, mutable_sensor_list[mutable_sensor_index]);
-
+            fix_sensor_fields(mutable_sensor_list[mutable_sensor_index]);
             mutable_sensor_index++;
         }
         module_index++;
@@ -742,7 +751,7 @@ static int open_sensors(const struct hw_module_t* hw_module, const char* name,
     sensors_poll_context_t *dev = new sensors_poll_context_t();
     memset(dev, 0, sizeof(sensors_poll_device_1_t));
     dev->proxy_device.common.tag = HARDWARE_DEVICE_TAG;
-    dev->proxy_device.common.version = SENSORS_DEVICE_API_VERSION_1_4;
+    dev->proxy_device.common.version = SENSORS_DEVICE_API_VERSION_1_3;
     dev->proxy_device.common.module = const_cast<hw_module_t*>(hw_module);
     dev->proxy_device.common.close = device__close;
     dev->proxy_device.activate = device__activate;
