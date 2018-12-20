@@ -1,11 +1,17 @@
-# Sensors
+# Sensor HAL
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     libjni_proximityCalibrate \
     ProximityCalibrate \
-    sensors.msm8916 \
+    calmodule.cfg \
+    libcalmodule_akm \
     libcalmodule_common \
-    calmodule.cfg
+    libcalmodule_gyroscope \
+    sensors.msm8916 \
+    sensors.nx511j
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/_hals.conf:system/vendor/etc/sensors/_hals.conf
 
 # Permissions
 PRODUCT_COPY_FILES += \
