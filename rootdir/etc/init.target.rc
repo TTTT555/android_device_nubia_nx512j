@@ -221,3 +221,11 @@ service tp-node /system/vendor/bin/tp.node.sh
     user root
     group root
     oneshot
+
+service lowi-server /system/vendor/bin/lowi-server
+    class late_start
+    user gps
+    group gps net_admin wifi inet oem_2901
+    disabled
+
+
