@@ -298,7 +298,7 @@ on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
-    class main
+    class core
     user root
     oneshot
 
@@ -376,10 +376,11 @@ service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-service loc_launcher /system/bin/loc_launcher
+service loc_launcher /system/vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet net_raw oem_2950 net_admin wifi
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
