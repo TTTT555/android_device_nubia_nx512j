@@ -30,7 +30,9 @@ LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libxml2 libutils
 
 LOCAL_MODULE := sensors.nubia
 LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
 LOCAL_VENDOR_MODULE := true
+
 
 # Export calibration library needed dependency headers
 LOCAL_COPY_HEADERS_TO := sensors/inc
@@ -78,6 +80,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := sensors.$(TARGET_BOARD_PLATFORM)
 
 LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_PROPRIETARY_MODULE := true
 LOCAL_VENDOR_MODULE := true
 
 LOCAL_CFLAGS := -DLOG_TAG=\"MultiHal\"
