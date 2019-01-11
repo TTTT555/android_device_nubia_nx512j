@@ -1,11 +1,9 @@
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdivxdrmdecrypt \
     libOmxSwVencMpeg4 \
     libOmxSwVencHevc \
     libOmxVdecHevc \
-    libOmxVidcCommon \
     libdashplayer \
     libOmxAacEnc \
     libOmxAmrEnc \
@@ -16,7 +14,6 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw \
-    libextmedia_jni \
     libstagefright_soft_flacdec
 
 PRODUCT_COPY_FILES += \
@@ -26,9 +23,7 @@ PRODUCT_COPY_FILES += \
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=1 \
-    vidc.enc.narrow.searchrange=1 \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+    vidc.enc.narrow.searchrange=1
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
