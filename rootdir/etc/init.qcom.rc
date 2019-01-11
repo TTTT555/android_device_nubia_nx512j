@@ -73,8 +73,10 @@ on post-fs-data
     mkdir /data/misc/sensor 0775 system system
     restorecon_recursive /data/misc/sensor
 
+    # Create folders for mm-qcamera-daemon
     mkdir /data/fdAlbum 0770 camera camera
     mkdir /data/misc/camera 0770 camera camera
+    mkdir /data/vendor/camera 0770 camera camera
 
     # Create directory used by the DASH client
     mkdir /data/misc/dash 0770 media audio
