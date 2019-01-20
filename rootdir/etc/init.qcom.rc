@@ -50,7 +50,8 @@ on init
     symlink /sdcard /storage/sdcard0
 
 on fs
-    wait /dev/block/bootdevice
+    wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
 
     mount_all /system/vendor/etc/fstab.qcom
 
@@ -147,6 +148,13 @@ on post-fs-data
     mkdir /data/misc/location/gpsone_d 0770 system gps
     mkdir /data/misc/location/quipc 0770 gps system
     mkdir /data/misc/location/gsiff 0770 gps gps
+
+	# Create the directories used by the Wireless subsystem
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/sockets 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
 
     #Create directory from IMS services
     mkdir /data/shared 0755
@@ -310,6 +318,7 @@ service rmt_storage /system/vendor/bin/rmt_storage
     user root
     group system wakelock
     writepid /dev/cpuset/system-background/tasks
+    shutdown critical
 
 service cnd /system/bin/cnd
     class late_start
@@ -324,13 +333,14 @@ service hciattach /system/vendor/bin/hci_qcomm_init -e
     user bluetooth
     group bluetooth net_bt_admin oem_2950 radio
     disabled
+    seclabel u:r:bluetooth_loader:s0
     oneshot
 
-on property:bluetooth.hciattach=true
+on property:vendor.bluetooth.hciattach=true
     start hciattach
 
-on property:bluetooth.hciattach=false
-    setprop bluetooth.status off
+on property:vendor.bluetooth.hciattach=false
+    setprop vendor.bluetooth.status off
 
 # FM
 on property:hw.fm.init=0
@@ -363,13 +373,11 @@ service netmgrd /system/vendor/bin/netmgrd
 on property:ro.data.large_tcp_window_size=true
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
-    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
-    -I/vendor/etc/wifi/p2p_supplicant_overlay.conf -N \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/vendor/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
-    -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \ 
+    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
+    -g@android:wpa_wlan0
+	interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
 #   user wifi

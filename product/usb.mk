@@ -1,6 +1,6 @@
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
+    android.hardware.usb@1.0-service.basic
 
 # Permissions
 PRODUCT_COPY_FILES += \

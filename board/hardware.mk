@@ -1,6 +1,6 @@
 # lineagehw
-BOARD_HARDWARE_CLASS += \
-    $(VENDOR_PATH)/lineagehw
+JAVA_SOURCE_OVERLAYS := \
+    org.lineageos.hardware|$(VENDOR_PATH)/lineagehw|**/*.java
 
 # double tap to wake gesture
 TARGET_TAP_TO_WAKE_NODE := "/data/tp/easy_wakeup_gesture"

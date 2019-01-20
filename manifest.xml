@@ -32,6 +32,7 @@
         <version>2.4</version>
         <interface>
             <name>ICameraProvider</name>
+            <instance>external/0</instance>
             <instance>legacy/0</instance>
         </interface>
     </hal>
@@ -144,7 +145,7 @@
     <hal format="hidl">
         <name>android.hardware.power</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IPower</name>
             <instance>default</instance>
@@ -201,16 +202,25 @@
     <hal format="hidl">
         <name>android.hardware.wifi</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.2</version>
         <interface>
             <name>IWifi</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.wifi.supplicant</name>
+        <name>android.hardware.wifi.hostapd</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
+        <interface>
+            <name>IHostapd</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.supplicant</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
         <interface>
             <name>ISupplicant</name>
             <instance>default</instance>
