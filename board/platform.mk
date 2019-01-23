@@ -37,5 +37,5 @@ TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 TARGET_RIL_VARIANT := caf
 
-# Exclude serif fonts for saving system.img size (25 mb)
-EXCLUDE_SERIF_FONTS := true
+# Shipping API
+PRODUCT_SHIPPING_API_LEVEL := 22
