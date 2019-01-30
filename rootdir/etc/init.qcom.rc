@@ -26,7 +26,6 @@
 #
 
 import /vendor/etc/init/hw/init.qcom.power.rc
-import /vendor/etc/init/hw/init.qcom.ssr.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
@@ -47,8 +46,6 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
-    symlink /sdcard /storage/sdcard0
-
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -60,7 +57,6 @@ on fs
     write /proc/sys/vm/page-cluster 0
     swapon_all /system/vendor/etc/fstab.qcom
 
-    mkdir /persist/data 0700 system system
     restorecon_recursive /persist
 
 # msm specific files that need to be created on /data
@@ -83,19 +79,9 @@ on post-fs-data
     mkdir /data/misc/dash 0770 media audio
 
     # Create PERFD deamon related dirs
-    mkdir /data/misc/perfd 0755 root system
-    chmod 2755 /data/misc/perfd
-    mkdir /data/system/perfd 0770 root system
-    chmod 2770 /data/system/perfd
+    mkdir /data/misc/perfd 2755 root system
+    mkdir /data/system/perfd 2770 root system
 
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
-
-    mkdir /persist/data/sfs 0700 system system
-    mkdir /persist/data/tz 0700 system system
 
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
@@ -114,10 +100,6 @@ on post-fs-data
     mkdir /data/dpm 0771 system system
     mkdir /data/dpm/fdMgr 0771 system system
     mkdir /data/dpm/nsrm 0771 system system
-
-    # Create directory used by audio subsystem
-    mkdir /data/misc/audio 0770 audio audio
-    restorecon_recursive /data/misc/audio
 
     # Create directory used by the DASH client
     mkdir /data/misc/dash 0770 media audio
@@ -145,85 +127,61 @@ on post-fs-data
     mkdir /data/misc/location 0770 gps gps
     mkdir /data/misc/location/mq 0770 gps gps
     mkdir /data/misc/location/xtwifi 0770 gps gps
-    mkdir /data/misc/location/gpsone_d 0770 system gps
-    mkdir /data/misc/location/quipc 0770 gps system
-    mkdir /data/misc/location/gsiff 0770 gps gps
 
 	# Create the directories used by the Wireless subsystem
     mkdir /data/vendor/wifi 0770 wifi wifi
-    mkdir /data/vendor/wifi/sockets 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
-
-    #Create directory from IMS services
-    mkdir /data/shared 0755
-    chown system system /data/shared
 
     #Create directory for FOTA
     mkdir /data/fota 0771
     chown system system /data/fota
 
     # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
-    restorecon_recursive /data/time
+    mkdir /data/time 0700 system system
 
-    mkdir /data/audio/ 0770 media audio
+    # Tombstones
+    mkdir /data/tombstones/modem 0771 system system
+    mkdir /data/tombstones/lpass 0771 system system
+    mkdir /data/tombstones/wcnss 0771 system system
+    mkdir /data/tombstones/dsps 0771 system system
 
     setprop vold.post_fs_data_done 1
-
-    #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
-
-    mkdir /data/diag_logs 0777 system system
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
+    # Subsystem Restart
+    # Venus
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
+    # WCNSS
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
+    # Modem
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
+
     write /sys/kernel/boot_adsp/boot 1
     chown root audio /sys/kernel/boot_adsp/boot
 
 on boot
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_lpm
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_btwrite
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/proto
     chown bluetooth bluetooth /dev/ttyHS0
-    chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
-    chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
     chmod 0660 /dev/ttyHS0
-    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
-    chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
-
-    chmod 0660 /dev/ttyHS2
-    chown bluetooth bluetooth /dev/ttyHS2
 
     #Create QMUX deamon socket area
-    mkdir /dev/socket/qmux_radio 0770 radio radio
-    chmod 2770 /dev/socket/qmux_radio
-    mkdir /dev/socket/qmux_audio 0770 media audio
-    chmod 2770 /dev/socket/qmux_audio
-    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
-    mkdir /dev/socket/qmux_gps 0770 gps gps
-    chmod 2770 /dev/socket/qmux_gps
+    mkdir /dev/socket/qmux_radio 2770 radio radio
+    mkdir /dev/socket/qmux_audio 2770 media audio
+    mkdir /dev/socket/qmux_bluetooth 2770 bluetooth bluetooth
+    mkdir /dev/socket/qmux_gps 2770 gps gps
+
+    # Create persist folders
+    mkdir /persist/alarm 0770 system system
+    mkdir /persist/display 0770 system graphics
 
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
-
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
-    #For bridgemgr daemon to inform the USB driver of the correct transport
-    chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
 #   Assign TCP buffer thresholds to be ceiling value of technology maximums
 #   Increased technology maximums should be reflected here.
@@ -239,18 +197,6 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet5/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio0/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio1/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio2/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio3/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio4/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio5/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio6/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio7/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb0/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb1/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb2/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
 
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
@@ -264,34 +210,12 @@ on boot
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "6 6 1 7"
 
-    # Allow access for CCID command/response timeout configuration
-    chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
-
     # camera sockets
-    mkdir /data/misc/camera 0770 camera camera
-
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
 
     #Create folder for mm-qcamera-daemon
     mkdir /data/camera 0770 media camera
-
-    # Create directory used by display clients
-    mkdir /data/misc/display 0770 system graphics
-    mkdir /persist/display 0770 system graphics
-
-    # Graphics node permissions
-    chmod 0664 /sys/class/graphics/fb0/dyn_pu
-    chmod 0664 /sys/class/graphics/fb0/dynamic_fps
-    chmod 0664 /sys/class/graphics/fb0/idle_time
-    chmod 0664 /sys/class/graphics/fb0/mode
-    chmod 0664 /sys/class/graphics/fb0/modes
-
-    chown system graphics /sys/class/graphics/fb0/dyn_pu
-    chown system graphics /sys/class/graphics/fb0/dynamic_fps
-    chown system graphics /sys/class/graphics/fb0/idle_time
-    chown system graphics /sys/class/graphics/fb0/mode
-    chown system graphics /sys/class/graphics/fb0/modes
 
     # Permissions required for power HAL
     chown system system /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
@@ -299,14 +223,21 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
+    # Graphics node permissions
+    chown system graphics /sys/class/graphics/fb0/dyn_pu
+    chmod 0664 /sys/class/graphics/fb0/dyn_pu
+    chown system graphics /sys/class/graphics/fb0/dynamic_fps
+    chmod 0664 /sys/class/graphics/fb0/dynamic_fps
+    chown system graphics /sys/class/graphics/fb0/idle_time
+    chmod 0664 /sys/class/graphics/fb0/idle_time
+    chown system graphics /sys/class/graphics/fb0/mode
+    chmod 0664 /sys/class/graphics/fb0/mode
+    chown system graphics /sys/class/graphics/fb0/modes
+    chmod 0664 /sys/class/graphics/fb0/modes
+
     # Mark wifi driver as unloaded - "ok" indicates loaded
     setprop wlan.driver.status not_ok
 
-on property:bluetooth.isEnabled=true
-    write /sys/class/bluetooth/hci0/idle_timeout 7000
-
-on property:persist.env.fastdorm.enabled=true
-    setprop persist.radio.data_no_toggle 1
 
 service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class core
@@ -343,10 +274,10 @@ on property:vendor.bluetooth.hciattach=false
     setprop vendor.bluetooth.status off
 
 # FM
-on property:hw.fm.init=0
+on property:vendor.hw.fm.init=0
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
 
-on property:hw.fm.init=1
+on property:vendor.hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 # QMUX must be in multiple groups to support external process connections
@@ -371,17 +302,13 @@ service netmgrd /system/vendor/bin/netmgrd
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
 on property:ro.data.large_tcp_window_size=true
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
+    write /proc/sys/net/ipv4/tcp_adv_win_scale 2
 
-service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \ 
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
     -g@android:wpa_wlan0
 	interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.1::ISupplicant default
-#   we will start as root and wpa_supplicant will switch to user wifi
-#   after setting up the capabilities required for WEXT
-#   user wifi
-#   group wifi inet keystore
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
@@ -413,26 +340,21 @@ service ssr_diag /system/bin/ssr_diag
     user system
     group system
 
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
-
 service poweroffcharge /sbin/poweroffcharge
     class charger
 
 #start camera server as daemon
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
-    class late_start
+    class main
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
+
+on property:init.svc.media=restarting
+    restart qcamerasvr
+
+ on property:init.svc.servicemanager=restarting
+    restart qcamerasvr
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -461,7 +383,7 @@ service thermal-engine /system/vendor/bin/thermal-engine -c /system/vendor/etc/t
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    socket thermal-send-rule stream 0660 system system
-   group root
+   group system root oem_2950
    writepid /dev/cpuset/system-background/tasks
 
 service time_daemon /system/vendor/bin/time_daemon
@@ -489,7 +411,7 @@ on property:init.svc.surfaceflinger=running
     start ppd
 
 service wcnss-service /system/vendor/bin/wcnss_service
-    class main
+    class late_start
     user system
     group system wifi radio
     oneshot
