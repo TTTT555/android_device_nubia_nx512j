@@ -6,6 +6,13 @@ BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-	/system/bin/mediaserver=22 \
-	/system/vendor/bin/mm-qcamera-daemon=22
+	/system/vendor/bin/mm-qcamera-daemon=23 #\
+#    /system/bin/mediaserver=23
+
+# Camera
+#BOARD_CAMERA_SENSORS := imx234 imx179
+
+#TARGET_USES_QTI_CAMERA_DEVICE
+

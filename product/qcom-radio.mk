@@ -34,3 +34,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcneapiclient
 
+# ?
+PRODUCT_PACKAGES += \
+    libsensorndkbridge \
+    libandroid_net
+

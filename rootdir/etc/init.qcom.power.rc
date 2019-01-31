@@ -152,3 +152,6 @@ on property:dev.bootcomplete=1
     write /dev/cpuset/system-background/cpus 4-6
     write /dev/cpuset/top-app/cpus 0-5
     write /dev/cpuset/camera-daemon/cpus 4-7
+    write /dev/cpuset/restricted/cpus 4-7
+
+    setprop vendor.post_boot.parsed 1

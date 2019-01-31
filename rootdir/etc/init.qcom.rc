@@ -72,8 +72,9 @@ on post-fs-data
 
     # Create folders for mm-qcamera-daemon
     mkdir /data/fdAlbum 0770 camera camera
-    mkdir /data/misc/camera 0770 camera camera
     mkdir /data/vendor/camera 0770 camera camera
+    mkdir /data/vendor/qcam 0770 camera camera
+    mkdir /data/misc/camera 0770 camera camera
 
     # Create directory used by the DASH client
     mkdir /data/misc/dash 0770 media audio
@@ -185,7 +186,7 @@ on boot
 
 #   Assign TCP buffer thresholds to be ceiling value of technology maximums
 #   Increased technology maximums should be reflected here.
-    write /proc/sys/net/core/rmem_max  8388608
+    write /proc/sys/net/core/rmem_max  16777216
     write /proc/sys/net/core/wmem_max  8388608
 
     #To allow interfaces to get v6 address when tethering is enabled
@@ -333,7 +334,7 @@ service ril-daemon2 /system/vendor/bin/hw/rild -c 2
 service charger /charger
     class charger
     group log
-    seclabel u:r:charger:s0
+    seclabel u:r:healthd:s0
 
 service ssr_diag /system/bin/ssr_diag
     class late_start
@@ -355,6 +356,9 @@ on property:init.svc.media=restarting
 
  on property:init.svc.servicemanager=restarting
     restart qcamerasvr
+
+on property:sys.boot_completed=1
+    restart mediaserver
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -409,6 +413,18 @@ on property:init.svc.surfaceflinger=stopped
 
 on property:init.svc.surfaceflinger=running
     start ppd
+
+on property:init.svc.surfaceflinger=restarting
+    stop ppd
+
+on property:init.svc.zygote=stopped
+    stop ppd
+
+on property:init.svc.zygote=running
+    start ppd
+
+on property:init.svc.zygote=restarting
+    stop ppd
 
 service wcnss-service /system/vendor/bin/wcnss_service
     class late_start
