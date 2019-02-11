@@ -2,13 +2,12 @@
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl-nubia \
     android.hardware.sensors@1.0-service-nubia \
-    libjni_proximityCalibrate \
-    ProximityCalibrate \
     calmodule.cfg \
     libcalmodule_akm \
     libcalmodule_common \
     libcalmodule_gyroscope \
-    sensors.nubia
+    sensors.nubia \
+    sensors.msm8916
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:system/vendor/etc/sensors/_hals.conf
