@@ -228,12 +228,3 @@ service lowi-server /system/vendor/bin/lowi-server
     group gps net_admin wifi inet oem_2901
     disabled
 
-# Add a cpuset for the camera daemon
-# We want all cores for camera
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-1
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0775 /dev/cpuset/camera-daemon/tasks
-
