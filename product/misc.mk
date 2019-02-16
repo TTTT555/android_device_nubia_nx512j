@@ -6,7 +6,7 @@ PRODUCT_PACKAGES += \
     libshim_atomic
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.model=NX511J \
+    ro.product.model=NX512J \
     dalvik.vm.heapstartsize=8m \
     dalvik.vm.heapgrowthlimit=192m \
     dalvik.vm.heapsize=512m \

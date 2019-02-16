@@ -14,10 +14,10 @@
 # limitations under the License.
 
 # Properties
-TARGET_OTA_ASSERT_DEVICE := NX511J,nx511j
+TARGET_OTA_ASSERT_DEVICE := NX512J,nx512j
 
-VENDOR_PATH := device/nubia/nx511j
-include device/nubia/nx511j/board/*.mk
+VENDOR_PATH := device/nubia/nx512j
+include device/nubia/nx512j/board/*.mk
 
 # Inherit from proprietary files
--include vendor/nubia/nx511j/BoardConfigVendor.mk
+-include vendor/nubia/nx512j/BoardConfigVendor.mk
