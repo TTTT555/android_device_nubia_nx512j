@@ -19,8 +19,8 @@ $(call inherit-product, device/nubia/nx512j/full_nx512j.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifiers
-PRODUCT_NAME := lineage_nx511j
-PRODUCT_DEVICE := nx511j
+PRODUCT_NAME := lineage_nx512j
+PRODUCT_DEVICE := nx512j
 PRODUCT_MANUFACTURER := Nubia
 PRODUCT_BRAND := Nubia
 PRODUCT_MODEL := Nubia Z9 Max
