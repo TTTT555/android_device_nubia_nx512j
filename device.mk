@@ -21,7 +21,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS := framework-res
 
-# Include package config fragments
-include $(LOCAL_PATH)/product/*.mk
+# Include product configs
+include $(LOCAL_PATH)/nx511j.mk
 
 $(call inherit-product, vendor/nubia/nx511j/nx511j-vendor.mk)

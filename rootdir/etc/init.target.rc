@@ -216,19 +216,19 @@ on boot
     chown system system /sys/class/leds/button-backlight/brightness
     chmod 0666 /sys/class/leds/button-backlight/brightness
 
-service tp-node /system/vendor/bin/tp.node.sh
+service tp-node /vendor/bin/tp.node.sh
     class main
     user root
     group root
     oneshot
 
-service lowi-server /system/vendor/bin/lowi-server
+service lowi-server /vendor/bin/lowi-server
     class late_start
     user gps
     group gps net_admin wifi inet oem_2901
     disabled
 
-service vendor.start_hci_filter /system/vendor/bin/wcnss_filter
+service vendor.start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag system wakelock

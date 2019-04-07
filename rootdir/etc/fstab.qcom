@@ -2,10 +2,11 @@
 # The filesystem that contains the filesystem e2fsck binary (typically /system) cannot
 # specify 'check', and must come before any filesystems that do specify 'check'
 
+/dev/block/platform/soc.0/7824900.sdhci/by-name/cache          /vendor      ext4    ro,barrier=1                                                wait,recoveryonly
 /dev/block/platform/soc.0/7824900.sdhci/by-name/userdata       /data        f2fs    nosuid,nodev,noatime,inline_xattr             wait,check,formattable,encryptable=footer
 /dev/block/platform/soc.0/7824900.sdhci/by-name/userdata       /data        ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait,check,formattable,encryptable=footer
-/dev/block/platform/soc.0/7824900.sdhci/by-name/cache          /cache       f2fs    nosuid,nodev,noatime,inline_xattr             wait,check,formattable
-/dev/block/platform/soc.0/7824900.sdhci/by-name/cache          /cache       ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait,check,formattable
+/dev/block/platform/soc.0/7824900.sdhci/by-name/oem          /cache       f2fs    nosuid,nodev,noatime,inline_xattr             wait,check,formattable
+/dev/block/platform/soc.0/7824900.sdhci/by-name/oem          /cache       ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait,check,formattable
 /dev/block/platform/soc.0/7824900.sdhci/by-name/persist        /persist     ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait
 /dev/block/platform/soc.0/7824900.sdhci/by-name/boot           /boot        emmc    defaults                                                    defaults
 /dev/block/platform/soc.0/7824900.sdhci/by-name/recovery       /recovery    emmc    defaults                                                    defaults
