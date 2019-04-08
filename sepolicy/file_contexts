@@ -14,3 +14,17 @@
 #Sensors multiHAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service-nubia        u:object_r:hal_sensors_default_exec:s0
 
+# sysfs - power_supply
+/sys/devices/soc\.0/78b8000\.i2c/i2c-4/4-0055/power_supply/bq27520-battery(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/78b8000\.i2c/i2c-4/4-006b/power_supply/bq24296m-battery(/.*)? u:object_r:sysfs_batteryinfo:s0
+
+# wcnss
+/sys/devices/soc\.0/a000000.qcom,wcnss-wlan/net/p2p0(/.*)?      u:object_r:sysfs_net:s0
+/sys/devices/soc\.0/a000000.qcom,wcnss-wlan/net/wlan0(/.*)?      u:object_r:sysfs_net:s0
+
+# usb
+/sys/devices/virtual/android_usb/android0(/.*)?     u:object_r:sysfs_android_usb:s0
+
+# led
+/sys/class/leds/nubia_led/(/.*)?		u:object_r:sysfs:s0
+

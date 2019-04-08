@@ -1,1 +1,2 @@
 allow kernel domain:process setsched;
+allow kernel self:capability dac_override;

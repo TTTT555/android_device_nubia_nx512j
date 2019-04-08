@@ -1,0 +1,5 @@
+allow priv_app proc_modules:file { open read write getattr };
+allow priv_app proc_pci_devices:file r_file_perms;
+allow priv_app proc_vmstat:file r_file_perms;
+dontaudit priv_app device:dir open;
+dontaudit priv_app proc_interrupts:file open;

@@ -3,3 +3,6 @@ type tpnode_sysfs, sysfs_type, fs_type;
 type proc_touchpanel, fs_type;
 
 type proc_kernel_sched, fs_type;
+
+# PCI
+type proc_pci_devices, fs_type, proc_type;

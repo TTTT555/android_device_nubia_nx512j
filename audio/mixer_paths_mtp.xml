@@ -20,13 +20,13 @@
     <ctl name="Voip Evrc Min Max Rate Config" id="1" value="4" />
     <ctl name="Voip Dtx Mode" value="0" />
     <ctl name="TTY Mode" value="Off" />
-    <ctl name="HPHL Volume" value="11" />
-    <ctl name="HPHR Volume" value="11" />
+    <ctl name="HPHL Volume" value="10" />
+    <ctl name="HPHR Volume" value="10" />
     <ctl name="External PA" value="off" />
 	<ctl name="HPHR CTRL" value="off" />
-    <ctl name="RX1 Digital Volume" value="92" />
-    <ctl name="RX2 Digital Volume" value="92" />
-    <ctl name="RX3 Digital Volume" value="92" />
+    <ctl name="RX1 Digital Volume" value="91" />
+    <ctl name="RX2 Digital Volume" value="91" />
+    <ctl name="RX3 Digital Volume" value="91" />
     <ctl name="IIR1 INP1 Volume" value="0" />
     <ctl name="IIR1 INP2 Volume" value="0" />
     <ctl name="IIR1 INP3 Volume" value="0" />
@@ -569,7 +569,9 @@
 
     <path name="voice-handset">
         <path name="handset" />
-    </path>
+<ctl name="RX1 Digital Volume" value="84" />
+<ctl name="RX2 Digital Volume" value="84" />
+</path>
 
     <path name="voice-speaker">
         <path name="speaker" />
@@ -581,9 +583,11 @@
         <ctl name="ADC1 Volume" value="4" />
     </path>
 
-    <path name="voice-headphones">
-        <path name="headphones" />
-    </path>
+<path name="voice-headphones">
+<path name="headphones" />
+<ctl name="RX1 Digital Volume" value="84" />
+<ctl name="RX2 Digital Volume" value="84" />
+</path>
 
     <path name="voice-headset-mic">
         <path name="headset-mic" />
@@ -747,4 +751,3 @@
     </path>
 
 </mixer>
-
