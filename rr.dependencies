@@ -1,0 +1,20 @@
+[
+  {
+    "remote": "github",
+    "repository": "TTTT555/android_vendor_nubia_nx511j",
+    "target_path": "vendor/nubia/nx511j",
+    "branch": "lineage-16.0"
+  },
+  {
+    "remote": "github",
+    "repository": "TTTT555/android_kernel_nubia_nx511j",
+    "target_path": "kernel/nubia/nx511j",
+    "branch": "lineage-16.0"
+  },
+  {
+    "remote": "github",
+    "repository": "LineageOS/android_external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat",
+    "branch": "lineage-16.0"
+  }
+] 

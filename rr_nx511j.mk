@@ -15,11 +15,11 @@
 
 $(call inherit-product, device/nubia/nx511j/full_nx511j.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common stuff.
+$(call inherit-product, vendor/rr/config/common_full_phone.mk)
 
 # Device identifiers
-PRODUCT_NAME := lineage_nx511j
+PRODUCT_NAME := rr_nx511j
 PRODUCT_DEVICE := nx511j
 PRODUCT_MANUFACTURER := Nubia
 PRODUCT_BRAND := Nubia

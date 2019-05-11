@@ -1,5 +1,5 @@
 
-Lineage OS 15.1 (Android 8.1 Oreo)
+Resurrection Remix 7.x.x (Android 9.0 Pie)
 device configuration for 
 ZTE Nubia Z9 Mini NX511J
 =====================================
@@ -20,4 +20,8 @@ Release Date | March 2015
 
 ![ZTE Nubia Z9 Mini](http://static.nubia.cn/product/max/images/params/params_z9max02.jpg "ZTE Nubia Z9 Mini")
 
-P.S. After "lunch", check the availability of repositories in your work directory, specified in lineage.dependencies, and add them manually, if they are missing.
+P.S. After "lunch", check the availability of repositories in your work directory, specified in rr.dependencies, and add them manually, if they are missing.
+
+P.P.S This device configuration optimized for work with TWRP [TREBLE] (see https://github.com/TTTT555/android_device_nubia_nx511j-twrp-treble )
+Compiled IMG is here: https://drive.google.com/open?id=1eklfoKVYVtioGzzN-VqWMVIZXKMU_8pM
+Fastboot auto installation is here: https://drive.google.com/open?id=1LxGFfQbgglzSZyjDQYjduSla3o3BcqrV
