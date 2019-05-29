@@ -290,6 +290,11 @@ vendor/lib64/libOmxMux.so
 vendor/lib64/libSHIMDivxDrm.so
 vendor/lib64/libmmparser.so
 
+#NFC firmware
+etc/firmware/nfc_test.bin:vendor/firmware/nfc_test.bin
+vendor/firmware/BCM20795A1_001.002.012.0003.0104_Generic_I2C_NCD_Unsigned_configdata.ncd
+vendor/firmware/BCM20795A2_001.003.025.0005.0035_Generic_I2C_NCD_Unsigned_configdata.ncd
+
 # OemCrypto
 vendor/lib/liboemcrypto.so
 

@@ -36,7 +36,7 @@ ro.opengles.version=196610
 debug.hwui.use_buffer_age=false
 
 # Product
-ro.product.model=NX511J
+ro.product.model=NX512J
 
 # Camera
 persist.camera.cpp.duplication=false

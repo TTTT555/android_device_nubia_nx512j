@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PLATFORM_PATH := device/nubia/nx511j
+PLATFORM_PATH := device/nubia/nx512j
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
@@ -23,7 +23,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 TARGET_NO_BOOTLOADER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := NX511J,nx511j
+TARGET_OTA_ASSERT_DEVICE := NX512J,nx512j
 
 # Ant
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -150,10 +150,10 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
-TARGET_KERNEL_SOURCE := kernel/nubia/nx511j
+TARGET_KERNEL_SOURCE := kernel/nubia/nx512j
 ENABLE_CPUSETS := true
 BOARD_KERNEL_IMAGE_NAME := Image-dtb
-TARGET_KERNEL_CONFIG := lineageos_nx511j_defconfig
+TARGET_KERNEL_CONFIG := lineageos_nx512j_defconfig
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 LZMA_RAMDISK_TARGETS := recovery
@@ -255,4 +255,4 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 
 # Inherit from proprietary files
--include vendor/nubia/nx511j/BoardConfigVendor.mk
+-include vendor/nubia/nx512j/BoardConfigVendor.mk

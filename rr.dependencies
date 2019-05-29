@@ -1,14 +1,14 @@
 [
   {
     "remote": "github",
-    "repository": "TTTT555/android_vendor_nubia_nx511j",
-    "target_path": "vendor/nubia/nx511j",
+    "repository": "TTTT555/android_vendor_nubia_nx512j",
+    "target_path": "vendor/nubia/nx512j",
     "branch": "lineage-16.0"
   },
   {
     "remote": "github",
-    "repository": "TTTT555/android_kernel_nubia_nx511j",
-    "target_path": "kernel/nubia/nx511j",
+    "repository": "TTTT555/android_kernel_nubia_nx512j",
+    "target_path": "kernel/nubia/nx512j",
     "branch": "lineage-16.0"
   },
   {
