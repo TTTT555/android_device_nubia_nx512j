@@ -1,5 +1,5 @@
 
-Resurrection Remix 7.x.x (Android 9.0 Pie)
+Lineage OS 16.0 (Android 9.0 Pie)
 device configuration for 
 ZTE Nubia Z9 Max NX512J
 =====================================
@@ -20,7 +20,7 @@ Release Date | March 2015
 
 ![ZTE Nubia Z9 Max](http://static.nubia.cn/product/max/images/params/params_z9max02.jpg "ZTE Nubia Z9 Max")
 
-P.S. After "lunch", check the availability of repositories in your work directory, specified in rr.dependencies, and add them manually, if they are missing.
+P.S. After "lunch", check the availability of repositories in your work directory, specified in lineage.dependencies, and add them manually, if they are missing.
 
 P.P.S This device configuration optimized for work with TWRP [TREBLE] (see https://github.com/TTTT555/android_device_nubia_nx512j-twrp-treble )
 Compiled IMG is here: 

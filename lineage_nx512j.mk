@@ -16,10 +16,10 @@
 $(call inherit-product, device/nubia/nx512j/full_nx512j.mk)
 
 # Inherit some common stuff.
-$(call inherit-product, vendor/rr/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifiers
-PRODUCT_NAME := rr_nx512j
+PRODUCT_NAME := lineage_nx512j
 PRODUCT_DEVICE := nx512j
 PRODUCT_MANUFACTURER := Nubia
 PRODUCT_BRAND := Nubia
