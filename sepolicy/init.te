@@ -5,3 +5,6 @@ allow init { domain -lmkd -crash_dump }:process noatsecure;
 
 # Allow init to mount vendor configs
 allow init vendor_configs_file:file mounton;
+
+# Allow init sysfs_android_usb
+allow init sysfs_android_usb:lnk_file read;
