@@ -1,0 +1,4 @@
+binder_use(hal_gnss_qti, servicemanager)
+allow hal_gnss_qti binder_per_mgr_service:service_manager find;
+dontaudit hal_gnss_qti self:udp_socket create;
+allow hal_gnss_qti binder_device:chr_file { ioctl open read write getattr };

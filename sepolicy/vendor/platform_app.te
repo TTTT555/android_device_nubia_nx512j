@@ -1,0 +1,2 @@
+allow platform_app vendor_file:file { r_file_perms };
+allow platform_app init:binder { call transfer };

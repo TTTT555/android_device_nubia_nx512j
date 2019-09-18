@@ -1,0 +1,1 @@
+allow dumpstate vendor_file:file r_file_perms;

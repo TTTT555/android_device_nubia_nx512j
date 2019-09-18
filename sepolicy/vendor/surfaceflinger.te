@@ -1,0 +1,2 @@
+allow surfaceflinger default_android_service:service_manager { add find };
+allow surfaceflinger vendor_file:file { rx_file_perms };

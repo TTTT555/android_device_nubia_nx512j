@@ -1,0 +1,14 @@
+allow init sysfs:file setattr;
+allow init debugfs:file write;
+allow init proc:file { r_file_perms };
+allow init system_file:file mounton;
+
+
+# required for LD_PRELOAD
+#allow init { domain -lmkd -crash_dump }:process noatsecure;
+
+# Allow init to mount vendor configs
+allow init vendor_configs_file:file mounton;
+
+# Allow init sysfs_android_usb
+allow init sysfs_android_usb:lnk_file read;

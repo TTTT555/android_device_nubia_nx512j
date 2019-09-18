@@ -1,0 +1,5 @@
+allow kernel domain:process setsched;
+allow kernel self:capability dac_override;
+allow kernel untrusted_app:fd use;
+allow kernel untrusted_app_25:fd use;
+allow kernel untrusted_app_27:fd use;

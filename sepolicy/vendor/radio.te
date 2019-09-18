@@ -1,0 +1,3 @@
+allow radio rild:unix_stream_socket { connectto };
+allow radio default_android_hwservice:hwservice_manager { find };
+allow radio vendor_file:file { r_file_perms };

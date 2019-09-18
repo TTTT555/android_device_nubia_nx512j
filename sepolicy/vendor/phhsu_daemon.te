@@ -1,0 +1,1 @@
+allow phhsu_daemon untrusted_app_25:fifo_file { read write ioctl getattr };

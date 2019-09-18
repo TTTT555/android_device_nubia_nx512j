@@ -41,7 +41,6 @@ on early-init
     write /sys/class/leds/lcd-backlight/trigger "backlight"
 
 on init
-    export LD_PRELOAD libshim_atomic.so
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -55,7 +54,7 @@ on fs
     #enable zram
     write /sys/block/zram0/comp_algorithm lz4
     write /proc/sys/vm/page-cluster 0
-    swapon_all /vendor/etc/fstab.qcom
+    write /proc/sys/vm/swappiness 100
 
     restorecon_recursive /persist
 
@@ -74,7 +73,7 @@ on post-fs-data
     mkdir /data/fdAlbum 0770 camera camera
     mkdir /data/vendor/camera 0770 camera camera
     mkdir /data/vendor/qcam 0770 camera camera
-    mkdir /data/misc/camera 0770 camera camera
+    mkdir /data/misc/camera 0770 media camera
 
     # Create directory used by the DASH client
     mkdir /data/misc/dash 0770 media audio
@@ -256,13 +255,13 @@ service rmt_storage /vendor/bin/rmt_storage
     writepid /dev/cpuset/system-background/tasks
     shutdown critical
 
-service cnd /system/bin/cnd
-    class late_start
-    socket cnd stream 660 root inet
+#service cnd /system/bin/cnd
+#    class late_start
+#    socket cnd stream 660 root inet
 
-service dpmd /system/bin/dpmd
-    class main
-    socket dpmd stream 660 root system
+#service dpmd /system/bin/dpmd
+#    class main
+#    socket dpmd stream 660 root system
 
 service hciattach /vendor/bin/hci_qcomm_init -e
     class late_start
@@ -340,19 +339,19 @@ service charger /charger
     group log
     seclabel u:r:healthd:s0
 
-service ssr_diag /system/bin/ssr_diag
-    class late_start
-    user system
-    group system
+#service ssr_diag /system/bin/ssr_diag
+#    class late_start
+#    user system
+#    group system
 
 service poweroffcharge /sbin/poweroffcharge
     class charger
 
 #start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
-    class main
+    class late_start
     user camera
-    group camera system inet input graphics
+    group camera media system inet input graphics gps
     writepid /dev/cpuset/camera-daemon/tasks
 
 on property:init.svc.media=restarting
@@ -361,7 +360,12 @@ on property:init.svc.media=restarting
  on property:init.svc.servicemanager=restarting
     restart qcamerasvr
 
+# sometimes mediaserver is named as media (restart for legacy HAL1)
 on property:sys.boot_completed=1
+    setprop vendor.post_boot.parsed 1
+    swapon_all /vendor/etc/fstab.qcom
+    restart cameraserver
+    restart media
     restart mediaserver
 
 # Allow usb charging to be disabled peristently
@@ -400,10 +404,10 @@ service time_daemon /vendor/bin/time_daemon
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
+#service audiod /system/bin/audiod
+#   class late_start
+#   user system
+#   group system
 
 service ppd /vendor/bin/mm-pp-daemon
     class late_start

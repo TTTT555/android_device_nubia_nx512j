@@ -1,0 +1,5 @@
+allow vendor_init proc_kernel_sched:file write;
+allow vendor_init proc:file write;
+allow vendor_init { rootfs wifi_data_file wpa_socket firmware_file }:dir create_dir_perms;
+allow vendor_init unlabeled:dir { getattr setattr search read write relabelfrom add_name };
+allow vendor_init firmware_file:file { r_file_perms };

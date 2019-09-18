@@ -1,0 +1,3 @@
+allow mediaserver hal_lineage_camera_motor_hwservice:hwservice_manager { find };
+allow mediaserver media_rw_data_file:file { read open execute getattr };
+allow mediaserver vendor_file:file { rx_file_perms };

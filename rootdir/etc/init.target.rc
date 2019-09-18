@@ -27,7 +27,14 @@
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-    mount none /system/etc/usb_audio_policy_configuration.xml /vendor/etc/usb_audio_policy_configuration.xml bind
+    mount none /vendor/etc/usb_audio_policy_configuration.xml /system/etc/usb_audio_policy_configuration.xml bind
+
+    # bind legacy ld.config.vndk_lite.txt and Camera's legacy HAL1 libraries for GSIs
+    mount none /vendor/etc/ld.config.vndk_lite.txt /system/etc/ld.config.vndk_lite.txt bind
+    # it will be enabled with adaptation patch
+    #mount none /vendor/bin/mediaserver /system/bin/mediaserver bind
+    #mount none /vendor/lib/libcameraservice.so /system/lib/libcameraservice.so bind
+    #mount none /vendor/lib64/libcameraservice.so /system/lib64/libcameraservice.so bind
 
 on boot
     # change file owner for factory test

@@ -1,0 +1,42 @@
+# Shell files
+/vendor/bin/init\.qcom\.mem\.sh              u:object_r:qti_init_shell_exec:s0
+/vendor/bin/tp\.node\.sh                     u:object_r:qti_init_shell_exec:s0
+
+#tp.node data files 
+/data/tp(/.*)?                                               u:object_r:system_data_file:s0
+
+#tp.node sysfs
+/sys/devices/soc\.0/78b9000\.i2c/i2c-5(/.*)?                 u:object_r:tpnode_sysfs:s0
+
+# Audio
+/(vendor|system)/etc/usb_audio_policy_configuration.xml    u:object_r:vendor_configs_file:s0
+
+#Sensors multiHAL
+/(vendor|system)/bin/hw/android\.hardware\.sensors@1\.0-service-nubia        u:object_r:hal_sensors_default_exec:s0
+
+# sysfs - power_supply
+/sys/devices/soc\.0/78b8000\.i2c/i2c-4/4-0055/power_supply/bq27520-battery(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/78b8000\.i2c/i2c-4/4-006b/power_supply/bq24296m-battery(/.*)? u:object_r:sysfs_batteryinfo:s0
+
+# wcnss
+/sys/devices/soc\.0/a000000.qcom,wcnss-wlan/net/p2p0(/.*)?      u:object_r:sysfs_net:s0
+/sys/devices/soc\.0/a000000.qcom,wcnss-wlan/net/wlan0(/.*)?      u:object_r:sysfs_net:s0
+
+# usb
+/sys/devices/virtual/android_usb/android0(/.*)?     u:object_r:sysfs_android_usb:s0
+
+# led
+/sys/class/leds/nubia_led/(/.*)?		u:object_r:sysfs:s0
+/sys/devices/virtual/leds/nubia_led/(/.*)?      u:object_r:sysfs:s0
+
+# firmware
+/firmware(/.*)?        u:object_r:firmware_file:s0
+
+# frp
+/dev/block/bootdevice/by-name/config       u:object_r:frp_block_device:s0
+
+# atomic
+/vendor/lib(64)?/libshim_atomic\.so     u:object_r:vendor_file:s0
+
+# nfc
+/dev/bcm2079x                       u:object_r:nfc_device:s0

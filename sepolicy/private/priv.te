@@ -1,0 +1,10 @@
+allow system_app storaged:binder call;
+allow storaged vendor_file:file { r_file_perms };
+
+allow storaged sysfs:file { r_file_perms };
+allow storaged sysfs_disk_stat:file { r_file_perms };
+
+allow vendor_init dpmd_data_file:dir create_dir_perms;
+
+allow blank_screen vendor_file:file { rx_file_perms };
+allow blank_screen system_file:dir { r_dir_perms };
