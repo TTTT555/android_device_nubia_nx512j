@@ -4,6 +4,8 @@ device configuration for
 ZTE Nubia Z9 Max NX512J
 =====================================
 
+Now this tree used with repartitioned devices. See more: https://tinyurl.com/y6m48gb2 
+
 Basic   | Spec Sheet
 -------:|:-------------------------
 Processor | Qualcomm® Snapdragon™ 615 processor（MSM8939) Quad-core ARM® Cortex™ A53, Quad-core ARM® Cortex™ A53, 64 bit
@@ -24,8 +26,3 @@ XDA (see first start instruction): https://forum.xda-developers.com/android/soft
 
 P.S. After "lunch", check the availability of repositories in your work directory, specified in lineage.dependencies, and add them manually, if they are missing.
 
-P.P.S This device configuration optimized for work with TWRP [TREBLE] (see https://github.com/TTTT555/android_device_nubia_nx512j-twrp-treble )
-
-Compiled IMG is here: https://drive.google.com/file/d/1Id44k2mRYrTt-Ay_OtjLleB7-h4VVYuJ/view
-
-Fastboot auto installation is here: https://drive.google.com/file/d/1Xe9_cbE8LJJW9QFLsevSHgyC34fTHyE-/view
