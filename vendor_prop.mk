@@ -135,8 +135,7 @@ ro.lmk.critical_upgrade=true \
 ro.lmk.upgrade_pressure=40 \
 ro.lmk.downgrade_pressure=60 \
 ro.lmk.kill_heaviest_task=false \
-ro.statsd.enable=true \
-ro.config.low_ram=true
+ro.statsd.enable=true
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
