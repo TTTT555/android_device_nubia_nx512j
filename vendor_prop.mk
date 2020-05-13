@@ -161,10 +161,6 @@ ro.telephony.default_network=9,9 \
 ril.subscription.types=NV,RUIM \
 ro.telephony.ril.config=simactivation,sim2gsmonly
 
-# Storage
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.sys.sdcardfs=false
-
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.usb.id.midi=90BA \
